@@ -1112,26 +1112,6 @@ footer h4 {
 
 }
 
-/* @media (max-width:1258px){
-    #sb2{
-        width:248px;
-        min-width:248px;
-        max-width:248px;
-    }
-}
-@media (max-width:696px){
-    #sb{
-        width:72px;
-        min-width:72px;
-        max-width:72px;
-    }
-}
-@media (min-width:696px)and (max-width:896px){
-    #sb{
-        min-width:220px;
-    }
-} */
-
 @media (max-width:1200px) {
     #ldateAdded,#sldateAdded {
         display: none;

@@ -161,25 +161,6 @@ viewtype.addEventListener('click', function () {
         sfcontainer.style.flexWrap = 'nowrap';
     }
 });
-function filesearchd(songs) {
-    let srchDiv = document.querySelector('.srchinfo');
-    srchDiv.innerHTML = '';
-    songs.forEach((song, index) => {
-        let slsongInfoDiv = createFileInfoDivfs(song, index + 1);
-        srchDiv.appendChild(slsongInfoDiv);
-        displaysFileDetails(song, slsongInfoDiv);
-        slsongInfoDiv.addEventListener('click', () => {
-            if (sb2co === 0) {
-                osb2();
-            }
-            ss = 1;
-            nsa = [];
-            darr = [];
-            document.querySelector('.niq').style.display = 'none';
-            playmusicsi(slsongInfoDiv);
-        });
-    });
-}
 function playmusicsi(snginf) {
     if (snginf) {
         let song = {
@@ -190,79 +171,11 @@ function playmusicsi(snginf) {
         };
         updateSongDetails(song);
         audioPlayer.src = snginf.classList[1];
-
         audioPlayer.play();
-
-
         playBtn.style.backgroundImage = 'url(assets/paus.png)';
     }
 }
-function displaysFileDetails(file, fileInfo) {
-    let jsmediatags = window.jsmediatags;
-    let fileCover = fileInfo.querySelector('#slcover');
-    let fileTitle = fileInfo.querySelector('#sltitle');
-    let fileArtist = fileInfo.querySelector('#slartist');
-    let fileAlbum = fileInfo.querySelector('#slalbum');
-    let fileDateAdded = fileInfo.querySelector('#sldateAdded');
-    let fileLength = fileInfo.querySelector('#sllength');
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", URL.createObjectURL(file), true);
-    xhr.responseType = "blob";
-
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            let blob = xhr.response;
-
-            jsmediatags.read(blob, {
-                onSuccess: function (tag) {
-                    if (tag && tag.tags) {
-                        fileTitle.textContent = (tag.tags.title || file.name).replace(/\.mp3$/, '');
-                        fileArtist.textContent = tag.tags.artist || 'Unknown Artist';
-                        fileAlbum.textContent = `${tag.tags.album || 'Unknown Album'}`;
-                        fileDateAdded.textContent = `${formatDate(file.lastModifiedDate)}`;
-
-                        getDuration(blob, function (duration) {
-                            fileLength.textContent = `${duration}`;
-                        });
-
-                        if (tag.tags.picture) {
-                            let data = tag.tags.picture.data;
-                            let format = tag.tags.picture.format;
-                            let base64String = "";
-                            if (data) {
-                                for (let i = 0; i < data.length; i++)
-                                    base64String += String.fromCharCode(data[i]);
-                                fileCover.style.backgroundImage = `url(data:${format};base64,${window.btoa(base64String)})`;
-                            }
-                        }
-                    } else {
-                        fileInfo.remove();
-                    }
-                },
-                onError: function (error) {
-                }
-            });
-        }
-    };
-
-    xhr.send();
-}
 let fc, sc;
-function formatDate(inputDate) {
-
-    let dateObj = new Date(inputDate);
-
-    let day = dateObj.getDate();
-    let month = dateObj.getMonth() + 1;
-    let year = dateObj.getFullYear();
-
-    let formattedDay = (day < 10 ? '0' : '') + day;
-    let formattedMonth = (month < 10 ? '0' : '') + month;
-
-    let formattedDate = formattedDay + '/' + formattedMonth + '/' + year;
-
-    return formattedDate;
-}
 function updateSongDetails(song) {
     var divs = document.querySelectorAll('.artist1');
     divs.forEach(function (div) {
