@@ -1,14 +1,75 @@
-let lfta = ['homeb'],arr = [], darr = [],nsa=[],num,i, j;let rgta = [],sb2co = 0,sb2c = "grey", psc = 1, k;
-
+let pmp = 1, ss = 0, cnt = 1, cnts, rgtc = 0, lstn, lfta = ['homeb'], arr = [], darr = [], nsa = [], num, i, j; let rgta = [], sb2co = 0, sb2c = "grey", psc = 1, k;
+for (i = 0; i < 45; i++) {
+    let slsongInfoDiv = document.querySelector('.si' + `${i + 1}`);
+    slsongInfoDiv.addEventListener('click', () => {
+        if (sb2co === 0) {
+            osb2();
+        }
+        ss = 1;
+        nsa = [];
+        darr = [];
+        document.querySelector('.niq').style.display = 'none';
+        playmusicsi(slsongInfoDiv);
+    });
+}
+for (i = 1; i <= 3; i++) {
+    let subfolderContainer = document.querySelector('#sfc' + `${i}`);
+    let tfc = parseInt(subfolderContainer.childNodes[3].childNodes[3].textContent);
+    for (j = 1; j <= tfc*2; j=j+2) {
+        let songInfoDiv = document.querySelector('.sfc' + `${i}` + 'f').childNodes[j];
+        songInfoDiv.addEventListener('click', () => {
+            ss = 0;
+            fc = parseInt(document.getElementById('scount').textContent);
+            cnts = lfta[lfta.length - 1];
+            nsa = [];
+            darr = [];
+            rndma();
+            if (sb2co === 0) {
+                osb2();
+            }
+            sc = parseInt(songInfoDiv.childNodes[1].textContent);
+            nsd();
+            playmusic(songInfoDiv);
+        });
+    }
+    subfolderContainer.addEventListener('click', () => {
+        subfolderCover = subfolderContainer.childNodes[1];
+        subfolderName = subfolderContainer.childNodes[3].childNodes[1].textContent;
+        fileCount = subfolderContainer.childNodes[3].childNodes[3].textContent;
+        if (subfolderContainer.id !== lfta[lfta.length - 1]) {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('srchd').style.display = 'none';
+            document.getElementById('sd').style.display = 'block';
+            lfta.push(subfolderContainer.id);
+            if (rgtc === 0) {
+                rgta = [];
+            }
+            document.getElementById('fldrname').textContent = subfolderName;
+            document.getElementById('scount').textContent = fileCount;
+            document.getElementById('fvcv').style.backgroundImage = subfolderCover.style.backgroundImage;
+            for (let sf = 1; sf <= 3; sf++) {
+                let sfcnt = document.querySelector('.sfc' + `${sf}` + 'f');
+                if ((`${subfolderContainer.id}` + 'f') === sfcnt.className) {
+                    sfcnt.style.display = 'block';
+                } else {
+                    sfcnt.style.display = 'none';
+                }
+            }
+        }
+    });
+}
+i = 0;
 let homeb = document.getElementById('homeb');
 homeb.addEventListener('click', function () {
-    document.getElementById('srchd').style.display = 'none';
-    document.getElementById('sd').style.display = 'none';
-    document.getElementById('home').style.display = 'block';
-    lfta.push('homeb');
-    console.log('lfta:', lfta);
-    console.log('rgta:', rgta);
-    // rgta = [];
+    if ('homeb' !== lfta[lfta.length - 1]) {
+        document.getElementById('srchd').style.display = 'none';
+        document.getElementById('sd').style.display = 'none';
+        document.getElementById('home').style.display = 'block';
+        lfta.push('homeb');
+        if (rgtc === 0) {
+            rgta = [];
+        }
+    }
 });
 function osb2() {
     document.getElementById('ocg').style.fill = '#1db954';
@@ -100,59 +161,24 @@ viewtype.addEventListener('click', function () {
         sfcontainer.style.flexWrap = 'nowrap';
     }
 });
-
-let selectFolder = document.getElementById('selectFolder');
-selectFolder.addEventListener('click', function () {
-    document.getElementById('folder-input').click();
-});
-document.getElementById('folder-input').addEventListener('change', async function () {
-    const folderInput = document.getElementById('folder-input');
-    const folderDetails = document.getElementById('folder-details');
-    folderDetails.innerHTML = '';
-
-    const folders = {};
-    for (const file of folderInput.files) {
-        if (file instanceof File) {
-            const folderName = file.webkitRelativePath.split('/')[0];
-            if (!folders[folderName]) {
-                folders[folderName] = [];
-            }
-            folders[folderName].push(file);
-        }
-    }
-
-    const folderNames = Object.keys(folders).reverse();
-    for (const folderName of folderNames) {
-        if (folders.hasOwnProperty(folderName)) {
-
-            const subfolderDetailsDiv = document.createElement('div');
-            subfolderDetailsDiv.classList.add('subfolder-details');
-            folderDetails.appendChild(subfolderDetailsDiv);
-
-            displaySubfolders(folderName, folderInput, subfolderDetailsDiv);
-        }
-    }
-    filesearchd([...folderInput.files]);
-});
 function filesearchd(songs) {
     let srchDiv = document.querySelector('.srchinfo');
+    srchDiv.innerHTML = '';
     songs.forEach((song, index) => {
         let slsongInfoDiv = createFileInfoDivfs(song, index + 1);
         srchDiv.appendChild(slsongInfoDiv);
         displaysFileDetails(song, slsongInfoDiv);
-    });
-    for (let i = 1; i <= songs.length; i++) {
-        let divs = document.querySelector('.si' + i);
-
-        divs.addEventListener('click', () => {
+        slsongInfoDiv.addEventListener('click', () => {
             if (sb2co === 0) {
                 osb2();
             }
+            ss = 1;
+            nsa = [];
+            darr = [];
             document.querySelector('.niq').style.display = 'none';
-            playmusicsi(divs);
+            playmusicsi(slsongInfoDiv);
         });
-
-    }
+    });
 }
 function playmusicsi(snginf) {
     if (snginf) {
@@ -163,12 +189,10 @@ function playmusicsi(snginf) {
             cover: snginf.querySelector('#slcover').style.backgroundImage
         };
         updateSongDetails(song);
-        // console.log('push:', darr);
-        audioPlayer.src = snginf.data;
+        audioPlayer.src = snginf.classList[1];
 
-        audioPlayer.addEventListener('canplay', function () {
-            audioPlayer.play();
-        });
+        audioPlayer.play();
+
 
         playBtn.style.backgroundImage = 'url(assets/paus.png)';
     }
@@ -205,10 +229,11 @@ function displaysFileDetails(file, fileInfo) {
                             let data = tag.tags.picture.data;
                             let format = tag.tags.picture.format;
                             let base64String = "";
-                            for (let i = 0; i < data.length; i++)
-                                base64String += String.fromCharCode(data[i]);
-
-                            fileCover.style.backgroundImage = `url(data:${format};base64,${window.btoa(base64String)})`;
+                            if (data) {
+                                for (let i = 0; i < data.length; i++)
+                                    base64String += String.fromCharCode(data[i]);
+                                fileCover.style.backgroundImage = `url(data:${format};base64,${window.btoa(base64String)})`;
+                            }
                         }
                     } else {
                         fileInfo.remove();
@@ -223,153 +248,6 @@ function displaysFileDetails(file, fileInfo) {
     xhr.send();
 }
 let fc, sc;
-function createFileInfoDivfs(file, fileIndex) {
-    let fileInfo = document.createElement('div');
-    let filepath = file.path || `${file.webkitRelativePath}`;
-    fileInfo.data = filepath;
-    fileInfo.className = 'si' + `${fileIndex}`;
-    fileInfo.id = 'sinfo';
-
-    let fileCS = document.createElement('div');
-    fileCS.id = 'slcs';
-
-    let fileCover = document.createElement('div');
-    fileCover.id = 'slcover';
-
-    let fileSinfo = document.createElement('div');
-    fileSinfo.id = 'slsinfo';
-
-    let fileTitle = document.createElement('p');
-    fileTitle.id = 'sltitle';
-    fileTitle.setAttribute('alt', 'sltitle');
-
-    let fileArtist = document.createElement('p');
-    fileArtist.id = 'slartist';
-    fileArtist.setAttribute('alt', 'slartist');
-
-    let fileAlbum = document.createElement('div');
-    fileAlbum.id = 'slalbum';
-    fileAlbum.setAttribute('alt', 'slalbum');
-
-    let fileDateAdded = document.createElement('div');
-    fileDateAdded.id = 'sldateAdded';
-    fileDateAdded.setAttribute('alt', 'sldateAdded');
-
-    let fileLength = document.createElement('div');
-    fileLength.id = 'sllength';
-    fileLength.setAttribute('alt', 'sllength');
-
-    fileSinfo.appendChild(fileTitle);
-    fileSinfo.appendChild(fileArtist);
-    fileCS.appendChild(fileCover);
-    fileCS.appendChild(fileSinfo);
-    fileInfo.appendChild(fileCS);
-    fileInfo.appendChild(fileAlbum);
-    fileInfo.appendChild(fileDateAdded);
-    fileInfo.appendChild(fileLength);
-    return fileInfo;
-}
-function createFileInfoDiv(file, fileIndex) {
-    let fileInfo = document.createElement('div');
-    let filepath = file.path || `${file.webkitRelativePath}`;
-    fileInfo.data = filepath;
-    fileInfo.className = 's' + `${fileIndex}`;
-    fileInfo.id = 'info';
-
-    let fileSerialNumber = document.createElement('div');
-    fileSerialNumber.id = 'lserial';
-    fileSerialNumber.setAttribute('alt', 'lserial');
-    fileInfo.appendChild(fileSerialNumber);
-
-    let fileCS = document.createElement('div');
-    fileCS.id = 'lcs';
-
-    let fileCover = document.createElement('div');
-    fileCover.id = 'lcover';
-
-    let fileSinfo = document.createElement('div');
-    fileSinfo.id = 'lsinfo';
-
-    let fileTitle = document.createElement('p');
-    fileTitle.id = 'ltitle';
-    fileTitle.setAttribute('alt', 'ltitle');
-
-    let fileArtist = document.createElement('p');
-    fileArtist.id = 'lartist';
-    fileArtist.setAttribute('alt', 'lartist');
-
-    let fileAlbum = document.createElement('div');
-    fileAlbum.id = 'lalbum';
-    fileAlbum.setAttribute('alt', 'lalbum');
-
-    let fileDateAdded = document.createElement('div');
-    fileDateAdded.id = 'ldateAdded';
-    fileDateAdded.setAttribute('alt', 'ldateAdded');
-
-    let fileLength = document.createElement('div');
-    fileLength.id = 'llength';
-    fileLength.setAttribute('alt', 'llength');
-
-    fileSinfo.appendChild(fileTitle);
-    fileSinfo.appendChild(fileArtist);
-    fileCS.appendChild(fileCover);
-    fileCS.appendChild(fileSinfo);
-    fileInfo.appendChild(fileCS);
-    fileInfo.appendChild(fileAlbum);
-    fileInfo.appendChild(fileDateAdded);
-    fileInfo.appendChild(fileLength);
-    fileSerialNumber.textContent = `${fileIndex}`;
-    return fileInfo;
-}
-function displayFileDetails(file, fileInfo) {
-    let jsmediatags = window.jsmediatags;
-    let fileCover = fileInfo.querySelector('#lcover');
-    let fileTitle = fileInfo.querySelector('#ltitle');
-    let fileArtist = fileInfo.querySelector('#lartist');
-    let fileAlbum = fileInfo.querySelector('#lalbum');
-    let fileDateAdded = fileInfo.querySelector('#ldateAdded');
-    let fileLength = fileInfo.querySelector('#llength');
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", URL.createObjectURL(file), true);
-    xhr.responseType = "blob";
-
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            let blob = xhr.response;
-
-            jsmediatags.read(blob, {
-                onSuccess: function (tag) {
-                    if (tag && tag.tags) {
-                        fileTitle.textContent = (tag.tags.title || file.name).replace(/\.mp3$/, '');
-                        fileArtist.textContent = tag.tags.artist || 'Unknown Artist';
-                        fileAlbum.textContent = `${tag.tags.album || 'Unknown Album'}`;
-                        fileDateAdded.textContent = `${formatDate(file.lastModifiedDate)}`;
-
-                        getDuration(blob, function (duration) {
-                            fileLength.textContent = `${duration}`;
-                        });
-
-                        if (tag.tags.picture) {
-                            let data = tag.tags.picture.data;
-                            let format = tag.tags.picture.format;
-                            let base64String = "";
-                            for (let i = 0; i < data.length; i++)
-                                base64String += String.fromCharCode(data[i]);
-
-                            fileCover.style.backgroundImage = `url(data:${format};base64,${window.btoa(base64String)})`;
-                        }
-                    } else {
-                        fileInfo.remove();
-                    }
-                },
-                onError: function (error) {
-                }
-            });
-        }
-    };
-
-    xhr.send();
-}
 function formatDate(inputDate) {
 
     let dateObj = new Date(inputDate);
@@ -385,175 +263,6 @@ function formatDate(inputDate) {
 
     return formattedDate;
 }
-function getDuration(blob, callback) {
-    let audio = new Audio();
-    audio.src = URL.createObjectURL(blob);
-
-    audio.addEventListener('loadedmetadata', function () {
-        let duration = audio.duration;
-        audio.remove();
-
-        if (isNaN(duration)) {
-            callback('N/A');
-        } else {
-            callback(formatDuration(duration));
-        }
-    });
-
-    audio.addEventListener('error', function () {
-        audio.remove();
-        callback('N/A');
-    });
-}
-
-function formatDuration(durationInSeconds) {
-    let minutes = Math.floor(durationInSeconds / 60);
-    let seconds = Math.round(durationInSeconds % 60);
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-}
-
-function formatDurationl(durationInSeconds) {
-    let minutes = (durationInSeconds / 60);
-    let hours = Math.floor(minutes / 60);
-    minutes = Math.floor(minutes % 60);
-    return `about ${hours > 0 ? `${hours} hr` : ''} ${minutes} min`
-}
-
-function updateSubfolderCover(subfolderCover, mp3File) {
-    let jsmediatags = window.jsmediatags;
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", URL.createObjectURL(mp3File), true);
-    xhr.responseType = "blob";
-
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            let blob = xhr.response;
-
-            jsmediatags.read(blob, {
-                onSuccess: function (tag) {
-                    if (tag.tags.picture) {
-                        let data = tag.tags.picture.data;
-                        let format = tag.tags.picture.format;
-                        let base64String = "";
-                        for (let i = 0; i < data.length; i++)
-                            base64String += String.fromCharCode(data[i]);
-                        subfolderCover.style.backgroundImage = `url(data:${format};base64,${window.btoa(base64String)})`;
-                        subfolderCover.data = `data:${format};base64,${window.btoa(base64String)}`;
-                    }
-                },
-                onError: function (error) {
-                    console.log(error);
-                }
-            });
-        }
-    };
-
-    xhr.send();
-}
-
-function displaySubfolders(folderName, folderInput, container) {
-    let subfolders = {};
-    for (let file of folderInput.files) {
-        if (file instanceof File) {
-            let filePathParts = file.webkitRelativePath.split('/');
-            if (filePathParts.length > 1 && filePathParts[0] === folderName) {
-                let subfolderName = filePathParts[1];
-                if (!subfolders[subfolderName]) {
-                    subfolders[subfolderName] = [];
-                }
-                subfolders[subfolderName].push(file);
-            }
-        }
-    }
-    let cnt = 1;
-    for (let subfolderName in subfolders) {
-        if (subfolders.hasOwnProperty(subfolderName)) {
-            let filesInSubfolder = subfolders[subfolderName];
-            // console.log(filesInSubfolder);
-            let fileCount = filesInSubfolder.length;
-            let subfolderContainer = document.createElement('div');
-            subfolderContainer.id = "sfc" + `${cnt++}`;
-            subfolderContainer.className = "sfcontainer";
-            let subfolderCover = document.createElement('div');
-            subfolderCover.className = "sfc";
-
-            let subfoldersinfo = document.createElement('div');
-            subfoldersinfo.className = "sfsinfo";
-            let subfolderNameElement = document.createElement('p');
-            subfolderNameElement.className = 'sbd';
-            let subfolderCountElement = document.createElement('p');
-            subfolderCountElement.className = 'sbd';
-            let subfolderlength = document.createElement('p');
-            subfolderlength.className = 'sfl';
-            subfolderlength.classList.add('sbd');
-
-            subfolderCover.textContent = ``;
-            subfolderNameElement.textContent = `${subfolderName}`;
-            subfolderCountElement.textContent = `${fileCount}`;
-
-            subfoldersinfo.appendChild(subfolderNameElement);
-            subfoldersinfo.appendChild(subfolderCountElement);
-            subfolderContainer.appendChild(subfolderCover);
-            subfolderContainer.appendChild(subfoldersinfo);
-            subfolderContainer.appendChild(subfolderlength);
-
-            container.appendChild(subfolderContainer);
-            let firstMp3File = filesInSubfolder.find(file => file.name.toLowerCase().endsWith('.mp3'));
-            updateSubfolderCover(subfolderCover, firstMp3File);
-
-            subfolderContainer.addEventListener('click', () => {
-                document.getElementById('home').style.display = 'none';
-                document.getElementById('srchd').style.display = 'none';
-                document.getElementById('sd').style.display = 'block';
-
-                lfta.push(subfolderContainer.id);
-                // rgta = [];
-                let fldrname = document.getElementById('fldrname');
-                fldrname.textContent = subfolderName;
-                let scount = document.getElementById('scount');
-                scount.textContent = fileCount + ' songs';
-
-                let mnt = document.querySelector('.mnt');
-                document.getElementById('fvcv').style.backgroundImage = subfolderCover.style.backgroundImage;
-                var colorThief = new ColorThief();
-                let image = new Image();
-                image.onload = function () {
-                    let averageColor = colorThief.getColor(image);
-                    let averageColorString = `rgb(${averageColor.join(', ')})`;
-                    mnt.style.background = `linear-gradient(to top, rgb(21,21,21) 0,${averageColorString} 100%)`;
-                };
-                image.src = subfolderCover.data;
-                displaySongs(filesInSubfolder, fileCount);
-            });
-            logSubfolderTotalLength(filesInSubfolder, subfolderContainer);
-        }
-    }
-}
-
-function logSubfolderTotalLength(files, subfolderContainer) {
-    let totalDuration = 0;
-    files.forEach(file => {
-        getDuration(file, duration => {
-            totalDuration += parseDuration(duration);
-            if (file === files[files.length - 1]) {
-
-                subfolderContainer.addEventListener('click', () => {
-                    let lcount = document.getElementById('lcount');
-                    lcount.textContent = `${formatDurationl(totalDuration)}`;
-                });
-
-            }
-        });
-    });
-}
-
-function parseDuration(durationString) {
-
-    let [minutes, seconds] = durationString.split(':').map(Number);
-
-    return minutes * 60 + seconds;
-}
-
 function updateSongDetails(song) {
     var divs = document.querySelectorAll('.artist1');
     divs.forEach(function (div) {
@@ -595,6 +304,7 @@ function updateSongDetails(song) {
         artsinfo.appendChild(artistDiv);
     });
 }
+
 function scrltxt() {
     const title = document.getElementById('title');
     const cover = document.getElementById('cover');
@@ -614,34 +324,6 @@ function updatenxtinq(song) {
     niqcover.style.backgroundImage = song.cover;
 }
 
-function displaySongs(songs, fileCount) {
-    let mnbDiv = document.querySelector('.mnb');
-    mnbDiv.innerHTML = '';
-    songs.forEach((song, index) => {
-        let songInfoDiv = createFileInfoDiv(song, index + 1);
-        mnbDiv.appendChild(songInfoDiv);
-        displayFileDetails(song, songInfoDiv);
-    });
-
-    fc = fileCount;
-    for (let i = 1; i <= fileCount; i++) {
-        let divs = document.querySelector('.s' + i);
-
-        divs.addEventListener('click', () => {
-            darr = [];
-            rndma();
-            if (sb2co === 0) {
-                osb2();
-            }
-            sc = i;
-            playmusic(divs);
-
-        });
-
-    }
-
-}
-
 let ninfo = document.getElementById('ninfo');
 ninfo.addEventListener('click', function () {
     nextBtn.click();
@@ -657,9 +339,10 @@ function playmusic(snginf) {
         };
         updateSongDetails(song);
         nsd();
-        darr.push(sc);
-        // console.log('push:', darr);
-        audioPlayer.src = snginf.data;
+        if (sc !== nsc) {
+            darr.push(sc);
+        }
+        audioPlayer.src = snginf.classList[1];
 
         audioPlayer.addEventListener('canplay', function () {
             audioPlayer.play();
@@ -707,71 +390,80 @@ repeat.addEventListener('click', function () {
 
 let gpb = document.querySelector('.gpb');
 gpb.addEventListener('click', function () {
+    fc = parseInt(document.getElementById('scount').textContent);
+    cnts = lfta[lfta.length - 1];
+    ss = 0;
+    nsa = [];
     darr = [];
     rndma();
     if (sb2co === 0) {
         osb2();
     }
     sc = 1;
-    let sng = document.querySelector(`#info:nth-child(${sc})`);
-    playmusic(sng);
+    playmusic(document.querySelector('.' + `${cnts}` + 'fs' + `${sc}`));
     nsd();
 });
 let prevsng;
 prevBtn.addEventListener('click', function () {
-    if (darr.length > 1) {
-        nsa.push(darr.pop());
-        sc = darr.pop();
-        playmusic(document.querySelector(`#info:nth-child(${sc})`));
+    if (ss === 0) {
+        if (darr.length > 1) {
+            nsa.push(darr.pop());
+            sc = darr.pop();
+            playmusic(document.querySelector('.' + `${cnts}` + 'fs' + `${sc}`));
+        }
+        nsd();
     }
 });
 let nsc, nextsng;
 nextBtn.addEventListener('click', function () {
-    if (rptc === 'green') {
-        if (odn === 't') {
-            if (sflc === 'grey') {
-                if (sc === fc) {
-                    sc = 1;
-                } else {
-                    sc = sc + 1;
-                }
-            } else {
-                sc = nsc;
-            }
-            nextsng = document.querySelector(`#info:nth-child(${sc})`);
-            playmusic(nextsng);
+    if (ss === 0) {
+        pmp = 1;
+        if (nsa.length > 0) {
+            nsc = nsa.pop();
+            sc = nsc;
+            nspm(sc);
         } else {
-            nextsng = document.querySelector(`#info:nth-child(${sc})`);
-            playmusic(nextsng);
-        }
-    } else {
-        if (sc !== fc) {
-            if (sflc === 'grey') {
-                sc = sc + 1;
-                nextsng = document.querySelector(`#info:nth-child(${sc})`);
-                playmusic(nextsng);
-            } else {
-                if (cz()) {
+            if (rptc === 'green') {
+                if (sflc === 'grey') {
+                    if (sc === fc) {
+                        sc = 1;
+                    } else {
+                        sc = sc + 1;
+                    }
+                    nspm(sc);
                 } else {
                     sc = nsc;
-                    nextsng = document.querySelector(`#info:nth-child(${sc})`);
-                    playmusic(nextsng);
+                    nspm(sc);
                 }
-            }
-        } else {
-            if (sflc !== 'grey') {
-                if (cz()) {
+            } else {
+                if (sc !== fc) {
+                    if (sflc === 'grey') {
+                        sc = sc + 1;
+                        nspm(sc);
+                    } else {
+                        if (cz()) {
+                        } else {
+                            sc = nsc;
+                            nspm(sc);
+                        }
+                    }
                 } else {
-                    sc = nsc;
-                    nextsng = document.querySelector(`#info:nth-child(${sc})`);
-                    playmusic(nextsng);
+                    if (sflc !== 'grey') {
+                        if (cz()) {
+                        } else {
+                            sc = nsc;
+                            nspm(sc);
+                        }
+                    }
                 }
             }
         }
+        nsd();
     }
-    nsd();
 });
-
+function nspm(sc) {
+    playmusic(document.querySelector('.' + `${cnts}` + 'fs' + `${sc}`));
+}
 function rndma() {
     arr = [];
     for (i = 1; i <= fc; i++) {
@@ -813,10 +505,10 @@ function nsd() {
     nsc = sc;
     let niq = document.querySelector('.niq');
     niq.style.display = 'flex';
-
-    
-    if (rptc === 'green') {
-        if (odn === 't') {
+    if (nsa.length > 0) {
+        nsc = nsa[nsa.length - 1];
+    } else {
+        if (rptc === 'green') {
             if (sflc === 'grey') {
                 if (nsc === fc) {
                     nsc = 1;
@@ -829,24 +521,24 @@ function nsd() {
                 }
                 rndm();
             }
-        }
-    } else {
-        if (sflc === 'grey') {
-            if (nsc !== fc) {
-                nsc = nsc + 1;
-            } else {
-                niq.style.display = 'none';
-            }
         } else {
-            if (cz()) {
-                niq.style.display = 'none';
+            if (sflc === 'grey') {
+                if (nsc !== fc) {
+                    nsc = nsc + 1;
+                } else {
+                    niq.style.display = 'none';
+                }
             } else {
-                rndm();
+                if (cz()) {
+                    niq.style.display = 'none';
+                } else {
+                    rndm();
+                }
             }
         }
     }
 
-    let nsxtsng = document.querySelector(`#info:nth-child(${nsc})`);
+    let nsxtsng = document.querySelector('.' + `${cnts}` + 'fs' + `${nsc}`);
     if (nsxtsng) {
         let nxtsngd = {
             title: nsxtsng.querySelector('#ltitle').textContent,
@@ -859,11 +551,15 @@ function nsd() {
 
 let searchb = document.getElementById('searchb');
 searchb.addEventListener('click', function () {
-    document.getElementById('sd').style.display = 'none';
-    document.getElementById('home').style.display = 'none';
-    document.querySelector('.srchd').style.display = 'block';
-    lfta.push('searchb');
-    // rgta = [];
+    if ('searchb' !== lfta[lfta.length - 1]) {
+        document.getElementById('sd').style.display = 'none';
+        document.getElementById('home').style.display = 'none';
+        document.querySelector('.srchd').style.display = 'block';
+        lfta.push('searchb');
+        if (rgtc === 0) {
+            rgta = [];
+        }
+    }
 });
 
 let audioPlayer = document.getElementById('audioPlayer');
@@ -920,7 +616,14 @@ audioPlayer.addEventListener('loadedmetadata', function () {
 });
 
 audioPlayer.addEventListener('ended', () => {
-    nextBtn.click();
+    if (ss === 0) {
+        if (odn !== 't') {
+            nspm(sc);
+        } else {
+            nextBtn.click();
+        }
+        pmp = 0;
+    }
 });
 
 navigator.mediaSession.setActionHandler('previoustrack', () => {
@@ -1001,52 +704,18 @@ let lft = document.getElementById('lft');
 lft.addEventListener('click', function () {
     if (lfta.length > 1) {
         rgta.push(lfta.pop());
+        rgtc = 1;
         document.getElementById(lfta.pop()).click();
+        rgtc = 0;
     }
 });
 
 let rgt = document.getElementById('rgt');
 rgt.addEventListener('click', function () {
     if (rgta.length > 0) {
-        let lstn = rgta.pop();
+        lstn = rgta.pop();
+        rgtc = 1;
         document.getElementById(lstn).click();
+        rgtc = 0;
     }
 });
-
-// let lstn;
-// let lft = document.getElementById('lft');
-// lft.addEventListener('click', function () {
-//     if (lfta.length > 1) {
-//         rgta.push(lfta.pop());
-//         lstn = lfta.pop();
-//         backnforth();
-//         console.log('lfta:', lfta);
-//         console.log('rgta:', rgta);
-//     }
-// });
-
-// let rgt = document.getElementById('rgt');
-// rgt.addEventListener('click', function () {
-//     if (rgta.length > 0) {
-//         lstn = rgta.pop();
-//         backnforth();
-//         console.log('lfta:', lfta);
-//         console.log('rgta:', rgta);
-//     }
-// });
-
-// function backnforth(){
-//     if (lstn === 'homeb') {
-//         document.getElementById('srchd').style.display = 'none';
-//         document.getElementById('sd').style.display = 'none';
-//         document.getElementById('home').style.display = 'block';
-//     } else if (lstn === 'searchb') {
-//         document.getElementById('sd').style.display = 'none';
-//         document.getElementById('home').style.display = 'none';
-//         document.querySelector('.srchd').style.display = 'block';
-//     } else {
-//         document.getElementById('home').style.display = 'none';
-//         document.getElementById('srchd').style.display = 'none';
-//         document.getElementById(lstn).style.display = 'block';
-//     }
-// }

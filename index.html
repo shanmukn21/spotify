@@ -1,0 +1,1710 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spotify-clone</title>
+    <link rel="shortcut icon" href="file:///C:/Users/shanm/Music/spotify.html#">
+    <link rel="stylesheet" href="spotify.css">
+</head>
+
+<body>
+
+    <div id="mbody">
+        <div id="top">
+            <div id="sb">
+                <div class="btns">
+                    <button id="homeb">
+                        <div class="home">
+                            <svg data-encore-id="icon" role="img" aria-hidden="false"
+                                class="Svg-sc-ytk21e-0 bneLcE home-active-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z">
+                                </path>
+                            </svg>
+                            <p class="sbd">Home</p>
+                        </div>
+                    </button>
+                    <button id="searchb">
+                        <div class="search">
+                            <svg data-encore-id="icon" role="img" aria-hidden="true"
+                                class="Svg-sc-ytk21e-0 bneLcE search-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 1 0 1.414-1.414l-4.344-4.344a9.157 9.157 0 0 0 2.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z">
+                                </path>
+                            </svg>
+                            <p class="sbd">Search</p>
+                        </div>
+                    </button>
+                </div>
+                <div id="library">
+                    <div class="lh">
+                        <div class="lib">
+                            <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24"
+                                class="Svg-sc-ytk21e-0 bneLcE libicon">
+                                <path
+                                    d="M14.5 2.134a1 1 0 0 1 1 0l6 3.464a1 1 0 0 1 .5.866V21a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V3a1 1 0 0 1 .5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zm6 0a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1z">
+                                </path>
+                            </svg>
+                            <p id="yrlib" class="sbd">Your Library</p>
+                        </div>
+                        <div id="libf" class="sbd">
+                            <input type="file" id="folder-input" webkitdirectory="" directory="" multiple="">
+                            <button id="selectFolder">
+                                <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                                    class="Svg-sc-ytk21e-0 dYnaPI">
+                                    <path
+                                        d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="filt sbd">
+                        <button id="playlistFilt">Playlist</button>
+                        <button id="artistFilt">Artists</button>
+                    </div>
+
+                    <div class="libmn">
+                        <div class="srchflt">
+                            <label id="libsearch" for="folderSearchInput">
+                                <svg data-encore-id="icon" role="img" aria-hidden="true"
+                                    class="Svg-sc-ytk21e-0 bneLcE search-icon" viewBox="0 0 24 24">
+                                    <path
+                                        d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 1 0 1.414-1.414l-4.344-4.344a9.157 9.157 0 0 0 2.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z">
+                                    </path>
+                                </svg>
+                            </label>
+                            <div id="searchFolder">
+                                <input type="text" id="folderSearchInput" placeholder="Search folder...">
+                            </div>
+                            <div id="srtby">
+                                <button id="viewtype">
+                                    <p for="srtby" id="vt">List</p>
+                                    <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                                        class="Svg-sc-ytk21e-0 cAMMLk list">
+                                        <path
+                                            d="M15 14.5H5V13h10v1.5zm0-5.75H5v-1.5h10v1.5zM15 3H5V1.5h10V3zM3 3H1V1.5h2V3zm0 11.5H1V13h2v1.5zm0-5.75H1v-1.5h2v1.5z">
+                                        </path>
+                                    </svg>
+                                    <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                                        class="Svg-sc-ytk21e-0 dYnaPI grid">
+                                        <path
+                                            d="M1 1h6v6H1V1zm1.5 1.5v3h3v-3h-3zM1 9h6v6H1V9zm1.5 1.5v3h3v-3h-3zM9 1h6v6H9V1zm1.5 1.5v3h3v-3h-3zM9 9h6v6H9V9zm1.5 1.5v3h3v-3h-3z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="folder-details">
+                            <div class="subfolder-details">
+                                <div id="sfc1" class="sfcontainer">
+                                    <div class="sfc"
+                                        style="background-image: url(&quot;t/AB_Yevaro_Nee_Baby.jpg&quot;);"></div>
+                                    <div class="sfsinfo">
+                                        <p class="sbd">telugu</p>
+                                        <p class="sbd">27</p>
+                                    </div>
+                                    <p class="sfl sbd"></p>
+                                </div>
+                                <div id="sfc2" class="sfcontainer">
+                                    <div class="sfc" style="background-image: url(&quot;t/Apna_Time_Aayega.jpg&quot;);">
+                                    </div>
+                                    <div class="sfsinfo">
+                                        <p class="sbd">hindi</p>
+                                        <p class="sbd">11</p>
+                                    </div>
+                                    <p class="sfl sbd"></p>
+                                </div>
+                                <div id="sfc3" class="sfcontainer">
+                                    <div class="sfc" style="background-image: url(&quot;t/Angel_Pt_2.jpg&quot;);"></div>
+                                    <div class="sfsinfo">
+                                        <p class="sbd">english</p>
+                                        <p class="sbd">7</p>
+                                    </div>
+                                    <p class="sfl sbd"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main" id="main">
+                <span id="lftrgt">
+                    <button id="lft"><svg data-encore-id="icon" role="img" aria-hidden="true"
+                            class="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF" viewBox="0 0 16 16">
+                            <path
+                                d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z">
+                            </path>
+                        </svg></button>
+                    <button id="rgt"><svg data-encore-id="icon" role="img" aria-hidden="true"
+                            class="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF" viewBox="0 0 16 16">
+                            <path
+                                d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z">
+                            </path>
+                        </svg>
+                    </button>
+                </span>
+                <div id="home">
+                    <div class="filt">
+                        <button id="playlistFilt">All</button>
+                        <button id="artistFilt">Music</button>
+                    </div>
+                    <h1 id="plh">Recently Played</h1>
+                    <div class="playlists">
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 id="plh">Most Played</h1>
+                    <div class="playlists">
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 id="plh">Recently Searched</h1>
+                    <div class="playlists">
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                        <div class="pdetails">
+                            <div class="pcover"></div>
+                            <div class="pinfo">
+                                <h1>title</h1>
+                                <p>description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <h1>Get in touch</h1>
+                        <div id="person">
+                            <h4>Shanmuk</h4>
+                            <div id="logos">
+                                <a href="https://www.instagram.com/shanmuk_cool/" target="_blank"><img
+                                        src="./assets/insta.png"></a>
+                                <a href="https://twitter.com/ShanmukNarsimha" target="_blank"><img
+                                        src="./assets/tx.png"></a>
+                                <a href="https://www.linkedin.com/in/shanmukn21/" target="_blank"><img
+                                        src="./assets/li.png"></a>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <div class="srchd" id="srchd">
+                    <div class="srchhdr">
+                        <input type="text" id="searchInput" placeholder="Search">
+                    </div>
+                    <div class="srchinfo" id="45">
+                        <div class="si1 u/telugu/AB_Yevaro_Nee_Baby.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/AB_Yevaro_Nee_Baby.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">AB Yevaro Nee Baby</p>
+                                    <p id="slartist" alt="slartist">Nakash Aziz, Arjun Chandy</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Agnyaathavaasi</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">3:29</div>
+                        </div>
+                        <div class="si2 u/telugu/Ala_Vaikunthapurramuloo.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover"
+                                    style="background-image: url(&quot;t/Ala_Vaikunthapurramuloo.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Ala Vaikunthapurramuloo</p>
+                                    <p id="slartist" alt="slartist">Sri Krishna, Priya Sisters</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Ala Vaikunthapurramuloo</div>
+                            <div id="sldateAdded" alt="sldateAdded">30/11/2022</div>
+                            <div id="sllength" alt="sllength">3:14</div>
+                        </div>
+                        <div class="si3 u/telugu/Allasani_Vaari.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Allasani_Vaari.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Allasani Vaari</p>
+                                    <p id="slartist" alt="slartist">Shreya Ghoshal</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Tholi Prema</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">4:56</div>
+                        </div>
+                        <div class="si4 u/telugu/Ammaye_Challo_Antu.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Ammaye_Challo_Antu.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Ammaye Challo Antu</p>
+                                    <p id="slartist" alt="slartist">Yazin Nizar, Lipsika</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Chalo</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">4:00</div>
+                        </div>
+                        <div class="si5 u/telugu/Anaganaganaga.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Anaganaganaga.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Anaganaganaga</p>
+                                    <p id="slartist" alt="slartist">Armaan Malik</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Aravinda Sametha</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">4:47</div>
+                        </div>
+                        <div class="si6 u/telugu/Break_The_Rules.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Break_The_Rules.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Break The Rules</p>
+                                    <p id="slartist" alt="slartist">Raghu Dixit</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Tholi Prema</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">4:06</div>
+                        </div>
+                        <div class="si7 u/telugu/Buttabomma_-_Telugu.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Buttabomma_-_Telugu.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Buttabomma</p>
+                                    <p id="slartist" alt="slartist">Armaan Malik, Thaman S</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Ala Vaikunthapurramuloo</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">3:19</div>
+                        </div>
+                        <div class="si8 u/telugu/Chilipiga.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Chilipiga.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Chilipiga</p>
+                                    <p id="slartist" alt="slartist">Karthik</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Orange</div>
+                            <div id="sldateAdded" alt="sldateAdded">28/03/2023</div>
+                            <div id="sllength" alt="sllength">5:29</div>
+                        </div>
+                        <div class="si9 u/telugu/Choosi_Chudangane_-_SenSongsMp3.Co.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover"
+                                    style="background-image: url(&quot;t/Choosi_Chudangane_-_SenSongsMp3.Co.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Choosi Chudangane</p>
+                                    <p id="slartist" alt="slartist">Anurag Kulkarni,Sagar</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Chalo</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">3:22</div>
+                        </div>
+                        <div class="si10 u/telugu/Gangu_Leader.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Gangu_Leader.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Gang Leader</p>
+                                    <p id="slartist" alt="slartist">Anirudh Ravichander, Sid Sriram</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Gang Leader</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">3:19</div>
+                        </div>
+                        <div class="si11 u/telugu/Hello_Rammante.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Hello_Rammante.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Hello Rammante</p>
+                                    <p id="slartist" alt="slartist">Vijay Prakash, Devan Ekambaram, D.Burn</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Orange</div>
+                            <div id="sldateAdded" alt="sldateAdded">28/03/2023</div>
+                            <div id="sllength" alt="sllength">4:42</div>
+                        </div>
+                        <div class="si12 u/telugu/Nenu_Nuvvantu.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Nenu_Nuvvantu.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Nenu Nuvvantu</p>
+                                    <p id="slartist" alt="slartist">Naresh Iyer, Nadeesh, U.V.Jackey</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Orange</div>
+                            <div id="sldateAdded" alt="sldateAdded">28/03/2023</div>
+                            <div id="sllength" alt="sllength">4:48</div>
+                        </div>
+                        <div class="si13 u/telugu/Ola_Olaala_Ala.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Ola_Olaala_Ala.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Ola Olaala Ala</p>
+                                    <p id="slartist" alt="slartist">Karunya, Ranina Reddy</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Orange</div>
+                            <div id="sldateAdded" alt="sldateAdded">28/03/2023</div>
+                            <div id="sllength" alt="sllength">5:35</div>
+                        </div>
+                        <div class="si14 u/telugu/OMG_Daddy.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/OMG_Daddy.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">OMG Daddy</p>
+                                    <p id="slartist" alt="slartist">Roll Rida, Rahul Nambiar, Lady Kash, Rahul Sipligunj
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Ala Vaikunthapurramuloo</div>
+                            <div id="sldateAdded" alt="sldateAdded">30/11/2022</div>
+                            <div id="sllength" alt="sllength">3:48</div>
+                        </div>
+                        <div class="si15 u/telugu/Padhe_Padhe.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Padhe_Padhe.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Padhe Padhe</p>
+                                    <p id="slartist" alt="slartist">Anirudh Ravichander, Shakthisree Gopalan, Brodha V
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Jersey</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">3:26</div>
+                        </div>
+                        <div class="si16 u/telugu/Peydhavi_Chivarakey.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Peydhavi_Chivarakey.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Peydhavi Chivarakey</p>
+                                    <p id="slartist" alt="slartist">Vijay Prakash</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Petta</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">3:37</div>
+                        </div>
+                        <div class="si17 u/telugu/Ramuloo_Ramulaa-Naasongs.me.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover"
+                                    style="background-image: url(&quot;t/Ramuloo_Ramulaa-Naasongs.me.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Ramuloo Ramulaa</p>
+                                    <p id="slartist" alt="slartist">Anurag Kulkarni, Mangli</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Ala Vaikunthapurramuloo</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">4:09</div>
+                        </div>
+                        <div class="si18 u/telugu/Rooba_Rooba.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Rooba_Rooba.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Rooba Rooba</p>
+                                    <p id="slartist" alt="slartist">Shahil Hada, Chinmayi</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Orange</div>
+                            <div id="sldateAdded" alt="sldateAdded">28/03/2023</div>
+                            <div id="sllength" alt="sllength">5:14</div>
+                        </div>
+                        <div class="si19 u/telugu/Samajavaragamana.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Samajavaragamana.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Samajavaragamana</p>
+                                    <p id="slartist" alt="slartist">Sid Sriram</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Ala Vaikunthapurramuloo</div>
+                            <div id="sldateAdded" alt="sldateAdded">30/11/2022</div>
+                            <div id="sllength" alt="sllength">3:40</div>
+                        </div>
+                        <div class="si20 u/telugu/spotifydown.com_-_Adigaa.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover"
+                                    style="background-image: url(&quot;t/spotifydown.com_-_Adigaa.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Adigaa</p>
+                                    <p id="slartist" alt="slartist">Karthik</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Hi Nanna</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">3:30</div>
+                        </div>
+                        <div class="si21 u/telugu/spotifydown.com_-_Chilaka.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover"
+                                    style="background-image: url(&quot;t/spotifydown.com_-_Chilaka.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Chilaka</p>
+                                    <p id="slartist" alt="slartist">Vijai Bulganin</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Chilaka</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">6:06</div>
+                        </div>
+                        <div class="si22 u/telugu/Swagatham_Krishna.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Swagatham_Krishna.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Swagatham Krishna</p>
+                                    <p id="slartist" alt="slartist">Niranjana Ramanan</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Agnyaathavaasi</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">3:24</div>
+                        </div>
+                        <div class="si23 u/telugu/Ye_Chota_Nuvvunna.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Ye_Chota_Nuvvunna.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Ye Chota Nuvvunna</p>
+                                    <p id="slartist" alt="slartist">Guru Randhawa</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Saaho</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">3:15</div>
+                        </div>
+                        <div class="si24 u/telugu/Ye_Vaipuga.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Ye_Vaipuga.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Ye Vaipuga</p>
+                                    <p id="slartist" alt="slartist">Karthik</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Orange</div>
+                            <div id="sldateAdded" alt="sldateAdded">28/03/2023</div>
+                            <div id="sllength" alt="sllength">1:28</div>
+                        </div>
+                        <div class="si25 u/telugu/[iSongs.info]_01_-_Massu_Maranam.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover"
+                                    style="background-image: url(&quot;t/[iSongs.info]_01_-_Massu_Maranam.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Massu Maranam</p>
+                                    <p id="slartist" alt="slartist">Anirudh Ravichander, Mano</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Petta</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">3:36</div>
+                        </div>
+                        <div class="si26 u/telugu/[iSongs.info]_01_-_Psycho_Saiyaan.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover"
+                                    style="background-image: url(&quot;t/[iSongs.info]_01_-_Psycho_Saiyaan.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Psycho Saiyaan</p>
+                                    <p id="slartist" alt="slartist">Anirudh Ravichander, Dhvani Bhanushali, Tanishk
+                                        Bagchi</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Saaho</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">2:46</div>
+                        </div>
+                        <div class="si27 u/telugu/[iSongs.info]_03_-_Bad_Boy.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover"
+                                    style="background-image: url(&quot;t/[iSongs.info]_03_-_Bad_Boy.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Bad Boy</p>
+                                    <p id="slartist" alt="slartist">Badshah, Neeti Mohan</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Saaho</div>
+                            <div id="sldateAdded" alt="sldateAdded">09/03/2024</div>
+                            <div id="sllength" alt="sllength">2:58</div>
+                        </div>
+                        <div class="si28 u/hindi/Apna_Time_Aayega.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Apna_Time_Aayega.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Apna Time Aayega</p>
+                                    <p id="slartist" alt="slartist">Ranveer Singh, Dub Sharma, DIVINE</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Gully Boy</div>
+                            <div id="sldateAdded" alt="sldateAdded">30/11/2022</div>
+                            <div id="sllength" alt="sllength">2:21</div>
+                        </div>
+                        <div class="si29 u/hindi/Desi_Kalakaar.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Desi_Kalakaar.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Desi Kalakaar</p>
+                                    <p id="slartist" alt="slartist">Yo Yo Honey Singh</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Desi Kalakaar</div>
+                            <div id="sldateAdded" alt="sldateAdded">30/11/2022</div>
+                            <div id="sllength" alt="sllength">4:18</div>
+                        </div>
+                        <div class="si30 u/hindi/Enna_Sona.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Enna_Sona.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Enna Sona</p>
+                                    <p id="slartist" alt="slartist">A.R. Rahman, Arijit Singh</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">OK Jaanu</div>
+                            <div id="sldateAdded" alt="sldateAdded">11/03/2024</div>
+                            <div id="sllength" alt="sllength">3:34</div>
+                        </div>
+                        <div class="si31 u/hindi/Heeriye.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Heeriye.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Heeriye</p>
+                                    <p id="slartist" alt="slartist">Dulquer Salmaan, Jasleen Royal, Arijit Singh</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Heeriye</div>
+                            <div id="sldateAdded" alt="sldateAdded">11/03/2024</div>
+                            <div id="sllength" alt="sllength">3:15</div>
+                        </div>
+                        <div class="si32 u/hindi/Ik_Vaari_Aa.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Ik_Vaari_Aa.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Ik Vaari Aa </p>
+                                    <p id="slartist" alt="slartist">Arijit Singh</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Raabta</div>
+                            <div id="sldateAdded" alt="sldateAdded">05/10/2021</div>
+                            <div id="sllength" alt="sllength">4:34</div>
+                        </div>
+                        <div class="si33 u/hindi/Main_Tera_Boyfriend.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Main_Tera_Boyfriend.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Main Tera Boyfriend </p>
+                                    <p id="slartist" alt="slartist">Neha Kakkar, Arijit Singh</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Raabta</div>
+                            <div id="sldateAdded" alt="sldateAdded">05/10/2021</div>
+                            <div id="sllength" alt="sllength">4:35</div>
+                        </div>
+                        <div class="si34 u/hindi/Phir_Aur_Kya_Chahiye.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover"
+                                    style="background-image: url(&quot;t/Phir_Aur_Kya_Chahiye.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Phir Aur Kya Chahiye</p>
+                                    <p id="slartist" alt="slartist">Arijit Singh</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Zara Hatke Zara Bachke</div>
+                            <div id="sldateAdded" alt="sldateAdded">11/03/2024</div>
+                            <div id="sllength" alt="sllength">4:26</div>
+                        </div>
+                        <div class="si35 u/hindi/Raataan_Lambiyan.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Raataan_Lambiyan.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Raataan Lambiyan</p>
+                                    <p id="slartist" alt="slartist">Tanishk Bagchi</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Shershaah</div>
+                            <div id="sldateAdded" alt="sldateAdded">11/03/2024</div>
+                            <div id="sllength" alt="sllength">2:31</div>
+                        </div>
+                        <div class="si36 u/hindi/Sunn_Raha_Hai.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Sunn_Raha_Hai.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Sunn Raha Hai</p>
+                                    <p id="slartist" alt="slartist">Shreya Ghoshal</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Aashiqui 2</div>
+                            <div id="sldateAdded" alt="sldateAdded">13/03/2024</div>
+                            <div id="sllength" alt="sllength">5:15</div>
+                        </div>
+                        <div class="si37 u/hindi/Tere_Vaaste.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Tere_Vaaste.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Tere Vaaste</p>
+                                    <p id="slartist" alt="slartist">Varun Jain/Sachin-Jigar/Shadab Faridi/Altamash
+                                        Faridi/Amitabh Bhattacharya</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Zara Hatke Zara Bachke</div>
+                            <div id="sldateAdded" alt="sldateAdded">13/03/2024</div>
+                            <div id="sllength" alt="sllength">3:09</div>
+                        </div>
+                        <div class="si38 u/hindi/Tum_Hi_Ho.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Tum_Hi_Ho.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Tum Hi Ho</p>
+                                    <p id="slartist" alt="slartist">Arijit Singh</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Aashiqui 2</div>
+                            <div id="sldateAdded" alt="sldateAdded">30/11/2022</div>
+                            <div id="sllength" alt="sllength">4:22</div>
+                        </div>
+                        <div class="si39 u/english/Angel_Pt_2.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Angel_Pt_2.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Angel Pt. 2</p>
+                                    <p id="slartist" alt="slartist">JVKE/Jimin/Charlie Puth/Muni Long/Fast &amp;
+                                        Furious: The Fast Saga</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">FAST X</div>
+                            <div id="sldateAdded" alt="sldateAdded">11/03/2024</div>
+                            <div id="sllength" alt="sllength">2:57</div>
+                        </div>
+                        <div class="si40 u/english/Dusk_Till_Dawn.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Dusk_Till_Dawn.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Dusk Till Dawn (feat. Sia) - Radio Edit</p>
+                                    <p id="slartist" alt="slartist">ZAYN/Sia</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Icarus Falls</div>
+                            <div id="sldateAdded" alt="sldateAdded">16/09/2023</div>
+                            <div id="sllength" alt="sllength">5:37</div>
+                        </div>
+                        <div class="si41 u/english/Hymn_for_the_Weekend.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover"
+                                    style="background-image: url(&quot;t/Hymn_for_the_Weekend.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Hymn for the Weekend</p>
+                                    <p id="slartist" alt="slartist">Coldplay</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">A Head Full of Dreams</div>
+                            <div id="sldateAdded" alt="sldateAdded">16/09/2023</div>
+                            <div id="sllength" alt="sllength">4:21</div>
+                        </div>
+                        <div class="si42 u/english/lovely.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/lovely.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">lovely</p>
+                                    <p id="slartist" alt="slartist">Billie Eilish, Khalid</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Lonely</div>
+                            <div id="sldateAdded" alt="sldateAdded">30/11/2022</div>
+                            <div id="sllength" alt="sllength">3:20</div>
+                        </div>
+                        <div class="si43 u/english/Perfect.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Perfect.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Perfect</p>
+                                    <p id="slartist" alt="slartist">Ed Sheeran</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">÷ (Deluxe)</div>
+                            <div id="sldateAdded" alt="sldateAdded">16/09/2023</div>
+                            <div id="sllength" alt="sllength">4:40</div>
+                        </div>
+                        <div class="si44 u/english/Sigue-La-Fiesta.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Sigue-La-Fiesta.jpg&quot;);">
+                                </div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Sigue La Fiesta</p>
+                                    <p id="slartist" alt="slartist">The Fast Saga</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">FAST X</div>
+                            <div id="sldateAdded" alt="sldateAdded">11/03/2024</div>
+                            <div id="sllength" alt="sllength">3:03</div>
+                        </div>
+                        <div class="si45 u/english/Sunflower.mp3" id="sinfo">
+                            <div id="slcs">
+                                <div id="slcover" style="background-image: url(&quot;t/Sunflower.jpg&quot;);"></div>
+                                <div id="slsinfo">
+                                    <p id="sltitle" alt="sltitle">Sunflower</p>
+                                    <p id="slartist" alt="slartist">Post Malone</p>
+                                </div>
+                            </div>
+                            <div id="slalbum" alt="slalbum">Spider-Man: Into the Spider-Verse</div>
+                            <div id="sldateAdded" alt="sldateAdded">11/03/2024</div>
+                            <div id="sllength" alt="sllength">2:42</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sd">
+                    <div class="mnt">
+                        <div class="foldrinf">
+                            <div class="fvcv" id="fvcv"></div>
+                            <div class="finf">
+                                <div class="songsd">
+                                    <p id="scount"></p>
+                                    <p>songs</p>
+                                    <p id="lcount"></p>
+                                </div>
+                                <p id="fldrname"></p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mnbtm">
+                        <div class="stky">
+                            <div class="gpbc">
+                                <div class="gpb">
+                                    <svg data-encore-id="icon" role="img" viewBox="0 0 24 24" class="gplay">
+                                        <path
+                                            d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div id="tinfo">
+                                <div id="lserial" alt="lserial">#</div>
+                                <div id="lcs">
+                                    <div id="htitle">Title</div>
+                                </div>
+                                <div id="lalbum" alt="lalbum">Album</div>
+                                <div id="ldateAdded" alt="ldateAdded">Date added</div>
+                                <div id="llength" alt="llength"><svg data-encore-id="icon" role="img" aria-hidden="true"
+                                        viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 dYnaPI">
+                                        <path
+                                            d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z">
+                                        </path>
+                                        <path
+                                            d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z">
+                                        </path>
+                                    </svg></div>
+                            </div>
+                        </div>
+                        <div class="mnb">
+                            <div class="sfc1f">
+                                <div class="sfc1fs1 u/telugu/AB_Yevaro_Nee_Baby.mp3" id="info">
+                                    <div id="lserial" alt="lserial">1</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/AB_Yevaro_Nee_Baby.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">AB Yevaro Nee Baby</p>
+                                            <p id="lartist" alt="lartist">Nakash Aziz, Arjun Chandy</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Agnyaathavaasi</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">3:29</div>
+                                </div>
+                                <div class="sfc1fs2 u/telugu/Ala_Vaikunthapurramuloo.mp3" id="info">
+                                    <div id="lserial" alt="lserial">2</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Ala_Vaikunthapurramuloo.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Ala Vaikunthapurramuloo</p>
+                                            <p id="lartist" alt="lartist">Sri Krishna, Priya Sisters</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Ala Vaikunthapurramuloo</div>
+                                    <div id="ldateAdded" alt="ldateAdded">30/11/2022</div>
+                                    <div id="llength" alt="llength">3:14</div>
+                                </div>
+                                <div class="sfc1fs3 u/telugu/Allasani_Vaari.mp3" id="info">
+                                    <div id="lserial" alt="lserial">3</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Allasani_Vaari.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Allasani Vaari</p>
+                                            <p id="lartist" alt="lartist">Shreya Ghoshal</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Tholi Prema</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">4:56</div>
+                                </div>
+                                <div class="sfc1fs4 u/telugu/Ammaye_Challo_Antu.mp3" id="info">
+                                    <div id="lserial" alt="lserial">4</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Ammaye_Challo_Antu.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Ammaye Challo Antu</p>
+                                            <p id="lartist" alt="lartist">Yazin Nizar, Lipsika</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Chalo</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">4:00</div>
+                                </div>
+                                <div class="sfc1fs5 u/telugu/Anaganaganaga.mp3" id="info">
+                                    <div id="lserial" alt="lserial">5</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Anaganaganaga.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Anaganaganaga</p>
+                                            <p id="lartist" alt="lartist">Armaan Malik</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Aravinda Sametha</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">4:47</div>
+                                </div>
+                                <div class="sfc1fs6 u/telugu/Break_The_Rules.mp3" id="info">
+                                    <div id="lserial" alt="lserial">6</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Break_The_Rules.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Break The Rules</p>
+                                            <p id="lartist" alt="lartist">Raghu Dixit</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Tholi Prema</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">4:06</div>
+                                </div>
+                                <div class="sfc1fs7 u/telugu/Buttabomma_-_Telugu.mp3" id="info">
+                                    <div id="lserial" alt="lserial">7</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Buttabomma_-_Telugu.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Buttabomma</p>
+                                            <p id="lartist" alt="lartist">Armaan Malik, Thaman S</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Ala Vaikunthapurramuloo</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">3:19</div>
+                                </div>
+                                <div class="sfc1fs8 u/telugu/Chilipiga.mp3" id="info">
+                                    <div id="lserial" alt="lserial">8</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Chilipiga.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Chilipiga</p>
+                                            <p id="lartist" alt="lartist">Karthik</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Orange</div>
+                                    <div id="ldateAdded" alt="ldateAdded">28/03/2023</div>
+                                    <div id="llength" alt="llength">5:29</div>
+                                </div>
+                                <div class="sfc1fs9 u/telugu/Choosi_Chudangane_-_SenSongsMp3.Co.mp3" id="info">
+                                    <div id="lserial" alt="lserial">9</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Choosi_Chudangane_-_SenSongsMp3.Co.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Choosi Chudangane</p>
+                                            <p id="lartist" alt="lartist">Anurag Kulkarni,Sagar</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Chalo</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">3:22</div>
+                                </div>
+                                <div class="sfc1fs10 u/telugu/Gangu_Leader.mp3" id="info">
+                                    <div id="lserial" alt="lserial">10</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Gangu_Leader.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Gang Leader</p>
+                                            <p id="lartist" alt="lartist">Anirudh Ravichander, Sid Sriram</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Gang Leader</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">3:19</div>
+                                </div>
+                                <div class="sfc1fs11 u/telugu/Hello_Rammante.mp3" id="info">
+                                    <div id="lserial" alt="lserial">11</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Hello_Rammante.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Hello Rammante</p>
+                                            <p id="lartist" alt="lartist">Vijay Prakash, Devan Ekambaram, D.Burn</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Orange</div>
+                                    <div id="ldateAdded" alt="ldateAdded">28/03/2023</div>
+                                    <div id="llength" alt="llength">4:42</div>
+                                </div>
+                                <div class="sfc1fs12 u/telugu/Nenu_Nuvvantu.mp3" id="info">
+                                    <div id="lserial" alt="lserial">12</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Nenu_Nuvvantu.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Nenu Nuvvantu</p>
+                                            <p id="lartist" alt="lartist">Naresh Iyer, Nadeesh, U.V.Jackey</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Orange</div>
+                                    <div id="ldateAdded" alt="ldateAdded">28/03/2023</div>
+                                    <div id="llength" alt="llength">4:48</div>
+                                </div>
+                                <div class="sfc1fs13 u/telugu/Ola_Olaala_Ala.mp3" id="info">
+                                    <div id="lserial" alt="lserial">13</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Ola_Olaala_Ala.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Ola Olaala Ala</p>
+                                            <p id="lartist" alt="lartist">Karunya, Ranina Reddy</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Orange</div>
+                                    <div id="ldateAdded" alt="ldateAdded">28/03/2023</div>
+                                    <div id="llength" alt="llength">5:35</div>
+                                </div>
+                                <div class="sfc1fs14 u/telugu/OMG_Daddy.mp3" id="info">
+                                    <div id="lserial" alt="lserial">14</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/OMG_Daddy.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">OMG Daddy</p>
+                                            <p id="lartist" alt="lartist">Roll Rida, Rahul Nambiar, Lady Kash, Rahul
+                                                Sipligunj</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Ala Vaikunthapurramuloo</div>
+                                    <div id="ldateAdded" alt="ldateAdded">30/11/2022</div>
+                                    <div id="llength" alt="llength">3:48</div>
+                                </div>
+                                <div class="sfc1fs15 u/telugu/Padhe_Padhe.mp3" id="info">
+                                    <div id="lserial" alt="lserial">15</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Padhe_Padhe.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Padhe Padhe</p>
+                                            <p id="lartist" alt="lartist">Anirudh Ravichander, Shakthisree Gopalan,
+                                                Brodha V</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Jersey</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">3:26</div>
+                                </div>
+                                <div class="sfc1fs16 u/telugu/Peydhavi_Chivarakey.mp3" id="info">
+                                    <div id="lserial" alt="lserial">16</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Peydhavi_Chivarakey.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Peydhavi Chivarakey</p>
+                                            <p id="lartist" alt="lartist">Vijay Prakash</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Petta</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">3:37</div>
+                                </div>
+                                <div class="sfc1fs17 u/telugu/Ramuloo_Ramulaa-Naasongs.me.mp3" id="info">
+                                    <div id="lserial" alt="lserial">17</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Ramuloo_Ramulaa-Naasongs.me.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Ramuloo Ramulaa</p>
+                                            <p id="lartist" alt="lartist">Anurag Kulkarni, Mangli</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Ala Vaikunthapurramuloo</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">4:09</div>
+                                </div>
+                                <div class="sfc1fs18 u/telugu/Rooba_Rooba.mp3" id="info">
+                                    <div id="lserial" alt="lserial">18</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Rooba_Rooba.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Rooba Rooba</p>
+                                            <p id="lartist" alt="lartist">Shahil Hada, Chinmayi</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Orange</div>
+                                    <div id="ldateAdded" alt="ldateAdded">28/03/2023</div>
+                                    <div id="llength" alt="llength">5:14</div>
+                                </div>
+                                <div class="sfc1fs19 u/telugu/Samajavaragamana.mp3" id="info">
+                                    <div id="lserial" alt="lserial">19</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Samajavaragamana.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Samajavaragamana</p>
+                                            <p id="lartist" alt="lartist">Sid Sriram</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Ala Vaikunthapurramuloo</div>
+                                    <div id="ldateAdded" alt="ldateAdded">30/11/2022</div>
+                                    <div id="llength" alt="llength">3:40</div>
+                                </div>
+                                <div class="sfc1fs20 u/telugu/spotifydown.com_-_Adigaa.mp3" id="info">
+                                    <div id="lserial" alt="lserial">20</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/spotifydown.com_-_Adigaa.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Adigaa</p>
+                                            <p id="lartist" alt="lartist">Karthik</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Hi Nanna</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">3:30</div>
+                                </div>
+                                <div class="sfc1fs21 u/telugu/spotifydown.com_-_Chilaka.mp3" id="info">
+                                    <div id="lserial" alt="lserial">21</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/spotifydown.com_-_Chilaka.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Chilaka</p>
+                                            <p id="lartist" alt="lartist">Vijai Bulganin</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Chilaka</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">6:06</div>
+                                </div>
+                                <div class="sfc1fs22 u/telugu/Swagatham_Krishna.mp3" id="info">
+                                    <div id="lserial" alt="lserial">22</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Swagatham_Krishna.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Swagatham Krishna</p>
+                                            <p id="lartist" alt="lartist">Niranjana Ramanan</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Agnyaathavaasi</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">3:24</div>
+                                </div>
+                                <div class="sfc1fs23 u/telugu/Ye_Chota_Nuvvunna.mp3" id="info">
+                                    <div id="lserial" alt="lserial">23</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Ye_Chota_Nuvvunna.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Ye Chota Nuvvunna</p>
+                                            <p id="lartist" alt="lartist">Guru Randhawa</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Saaho</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">3:15</div>
+                                </div>
+                                <div class="sfc1fs24 u/telugu/Ye_Vaipuga.mp3" id="info">
+                                    <div id="lserial" alt="lserial">24</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Ye_Vaipuga.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Ye Vaipuga</p>
+                                            <p id="lartist" alt="lartist">Karthik</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Orange</div>
+                                    <div id="ldateAdded" alt="ldateAdded">28/03/2023</div>
+                                    <div id="llength" alt="llength">1:28</div>
+                                </div>
+                                <div class="sfc1fs25 u/telugu/[iSongs.info]_01_-_Massu_Maranam.mp3" id="info">
+                                    <div id="lserial" alt="lserial">25</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/[iSongs.info]_01_-_Massu_Maranam.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Massu Maranam</p>
+                                            <p id="lartist" alt="lartist">Anirudh Ravichander, Mano</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Petta</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">3:36</div>
+                                </div>
+                                <div class="sfc1fs26 u/telugu/[iSongs.info]_01_-_Psycho_Saiyaan.mp3" id="info">
+                                    <div id="lserial" alt="lserial">26</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/[iSongs.info]_01_-_Psycho_Saiyaan.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Psycho Saiyaan</p>
+                                            <p id="lartist" alt="lartist">Anirudh Ravichander, Dhvani Bhanushali,
+                                                Tanishk Bagchi</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Saaho</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">2:46</div>
+                                </div>
+                                <div class="sfc1fs27 u/telugu/[iSongs.info]_03_-_Bad_Boy.mp3" id="info">
+                                    <div id="lserial" alt="lserial">27</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/[iSongs.info]_03_-_Bad_Boy.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Bad Boy</p>
+                                            <p id="lartist" alt="lartist">Badshah, Neeti Mohan</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Saaho</div>
+                                    <div id="ldateAdded" alt="ldateAdded">09/03/2024</div>
+                                    <div id="llength" alt="llength">2:58</div>
+                                </div>
+                            </div>
+                            <div class="sfc2f">
+                                <div class="sfc2fs1 u/hindi/Apna_Time_Aayega.mp3" id="info">
+                                    <div id="lserial" alt="lserial">1</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Apna_Time_Aayega.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Apna Time Aayega</p>
+                                            <p id="lartist" alt="lartist">Ranveer Singh, Dub Sharma, DIVINE</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Gully Boy</div>
+                                    <div id="ldateAdded" alt="ldateAdded">30/11/2022</div>
+                                    <div id="llength" alt="llength">2:21</div>
+                                </div>
+                                <div class="sfc2fs2 u/hindi/Desi_Kalakaar.mp3" id="info">
+                                    <div id="lserial" alt="lserial">2</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Desi_Kalakaar.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Desi Kalakaar</p>
+                                            <p id="lartist" alt="lartist">Yo Yo Honey Singh</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Desi Kalakaar</div>
+                                    <div id="ldateAdded" alt="ldateAdded">30/11/2022</div>
+                                    <div id="llength" alt="llength">4:18</div>
+                                </div>
+                                <div class="sfc2fs3 u/hindi/Enna_Sona.mp3" id="info">
+                                    <div id="lserial" alt="lserial">3</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Enna_Sona.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Enna Sona</p>
+                                            <p id="lartist" alt="lartist">A.R. Rahman, Arijit Singh</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">OK Jaanu</div>
+                                    <div id="ldateAdded" alt="ldateAdded">11/03/2024</div>
+                                    <div id="llength" alt="llength">3:34</div>
+                                </div>
+                                <div class="sfc2fs4 u/hindi/Heeriye.mp3" id="info">
+                                    <div id="lserial" alt="lserial">4</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Heeriye.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Heeriye</p>
+                                            <p id="lartist" alt="lartist">Dulquer Salmaan, Jasleen Royal, Arijit Singh
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Heeriye</div>
+                                    <div id="ldateAdded" alt="ldateAdded">11/03/2024</div>
+                                    <div id="llength" alt="llength">3:15</div>
+                                </div>
+                                <div class="sfc2fs5 u/hindi/Ik_Vaari_Aa.mp3" id="info">
+                                    <div id="lserial" alt="lserial">5</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Ik_Vaari_Aa.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Ik Vaari Aa </p>
+                                            <p id="lartist" alt="lartist">Arijit Singh</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Raabta</div>
+                                    <div id="ldateAdded" alt="ldateAdded">05/10/2021</div>
+                                    <div id="llength" alt="llength">4:34</div>
+                                </div>
+                                <div class="sfc2fs6 u/hindi/Main_Tera_Boyfriend.mp3" id="info">
+                                    <div id="lserial" alt="lserial">6</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Main_Tera_Boyfriend.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Main Tera Boyfriend </p>
+                                            <p id="lartist" alt="lartist">Neha Kakkar, Arijit Singh</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Raabta</div>
+                                    <div id="ldateAdded" alt="ldateAdded">05/10/2021</div>
+                                    <div id="llength" alt="llength">4:35</div>
+                                </div>
+                                <div class="sfc2fs7 u/hindi/Phir_Aur_Kya_Chahiye.mp3" id="info">
+                                    <div id="lserial" alt="lserial">7</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Phir_Aur_Kya_Chahiye.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Phir Aur Kya Chahiye</p>
+                                            <p id="lartist" alt="lartist">Arijit Singh</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Zara Hatke Zara Bachke</div>
+                                    <div id="ldateAdded" alt="ldateAdded">11/03/2024</div>
+                                    <div id="llength" alt="llength">4:26</div>
+                                </div>
+                                <div class="sfc2fs8 u/hindi/Raataan_Lambiyan.mp3" id="info">
+                                    <div id="lserial" alt="lserial">8</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Raataan_Lambiyan.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Raataan Lambiyan</p>
+                                            <p id="lartist" alt="lartist">Tanishk Bagchi</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Shershaah</div>
+                                    <div id="ldateAdded" alt="ldateAdded">11/03/2024</div>
+                                    <div id="llength" alt="llength">2:31</div>
+                                </div>
+                                <div class="sfc2fs9 u/hindi/Sunn_Raha_Hai.mp3" id="info">
+                                    <div id="lserial" alt="lserial">9</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Sunn_Raha_Hai.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Sunn Raha Hai</p>
+                                            <p id="lartist" alt="lartist">Shreya Ghoshal</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Aashiqui 2</div>
+                                    <div id="ldateAdded" alt="ldateAdded">13/03/2024</div>
+                                    <div id="llength" alt="llength">5:15</div>
+                                </div>
+                                <div class="sfc2fs10 u/hindi/Tere_Vaaste.mp3" id="info">
+                                    <div id="lserial" alt="lserial">10</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Tere_Vaaste.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Tere Vaaste</p>
+                                            <p id="lartist" alt="lartist">Varun Jain/Sachin-Jigar/Shadab Faridi/Altamash
+                                                Faridi/Amitabh Bhattacharya</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Zara Hatke Zara Bachke</div>
+                                    <div id="ldateAdded" alt="ldateAdded">13/03/2024</div>
+                                    <div id="llength" alt="llength">3:09</div>
+                                </div>
+                                <div class="sfc2fs11 u/hindi/Tum_Hi_Ho.mp3" id="info">
+                                    <div id="lserial" alt="lserial">11</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Tum_Hi_Ho.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Tum Hi Ho</p>
+                                            <p id="lartist" alt="lartist">Arijit Singh</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Aashiqui 2</div>
+                                    <div id="ldateAdded" alt="ldateAdded">30/11/2022</div>
+                                    <div id="llength" alt="llength">4:22</div>
+                                </div>
+                            </div>
+                            <div class="sfc3f">
+                                <div class="sfc3fs1 u/english/Angel_Pt_2.mp3" id="info">
+                                    <div id="lserial" alt="lserial">1</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Angel_Pt_2.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Angel Pt. 2</p>
+                                            <p id="lartist" alt="lartist">JVKE/Jimin/Charlie Puth/Muni Long/Fast &amp;
+                                                Furious: The Fast Saga</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">FAST X</div>
+                                    <div id="ldateAdded" alt="ldateAdded">11/03/2024</div>
+                                    <div id="llength" alt="llength">2:57</div>
+                                </div>
+                                <div class="sfc3fs2 u/english/Dusk_Till_Dawn.mp3" id="info">
+                                    <div id="lserial" alt="lserial">2</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Dusk_Till_Dawn.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Dusk Till Dawn (feat. Sia) - Radio Edit</p>
+                                            <p id="lartist" alt="lartist">ZAYN/Sia</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Icarus Falls</div>
+                                    <div id="ldateAdded" alt="ldateAdded">16/09/2023</div>
+                                    <div id="llength" alt="llength">5:37</div>
+                                </div>
+                                <div class="sfc3fs3 u/english/Hymn_for_the_Weekend.mp3" id="info">
+                                    <div id="lserial" alt="lserial">3</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Hymn_for_the_Weekend.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Hymn for the Weekend</p>
+                                            <p id="lartist" alt="lartist">Coldplay</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">A Head Full of Dreams</div>
+                                    <div id="ldateAdded" alt="ldateAdded">16/09/2023</div>
+                                    <div id="llength" alt="llength">4:21</div>
+                                </div>
+                                <div class="sfc3fs4 u/english/lovely.mp3" id="info">
+                                    <div id="lserial" alt="lserial">4</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/lovely.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">lovely</p>
+                                            <p id="lartist" alt="lartist">Billie Eilish, Khalid</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Lonely</div>
+                                    <div id="ldateAdded" alt="ldateAdded">30/11/2022</div>
+                                    <div id="llength" alt="llength">3:20</div>
+                                </div>
+                                <div class="sfc3fs5 u/english/Perfect.mp3" id="info">
+                                    <div id="lserial" alt="lserial">5</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Perfect.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Perfect</p>
+                                            <p id="lartist" alt="lartist">Ed Sheeran</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">÷ (Deluxe)</div>
+                                    <div id="ldateAdded" alt="ldateAdded">16/09/2023</div>
+                                    <div id="llength" alt="llength">4:40</div>
+                                </div>
+                                <div class="sfc3fs6 u/english/Sigue-La-Fiesta.mp3" id="info">
+                                    <div id="lserial" alt="lserial">6</div>
+                                    <div id="lcs">
+                                        <div id="lcover"
+                                            style="background-image: url(&quot;t/Sigue-La-Fiesta.jpg&quot;);"></div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Sigue La Fiesta</p>
+                                            <p id="lartist" alt="lartist">The Fast Saga</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">FAST X</div>
+                                    <div id="ldateAdded" alt="ldateAdded">11/03/2024</div>
+                                    <div id="llength" alt="llength">3:03</div>
+                                </div>
+                                <div class="sfc3fs7 u/english/Sunflower.mp3" id="info">
+                                    <div id="lserial" alt="lserial">7</div>
+                                    <div id="lcs">
+                                        <div id="lcover" style="background-image: url(&quot;t/Sunflower.jpg&quot;);">
+                                        </div>
+                                        <div id="lsinfo">
+                                            <p id="ltitle" alt="ltitle">Sunflower</p>
+                                            <p id="lartist" alt="lartist">Post Malone</p>
+                                        </div>
+                                    </div>
+                                    <div id="lalbum" alt="lalbum">Spider-Man: Into the Spider-Verse</div>
+                                    <div id="ldateAdded" alt="ldateAdded">11/03/2024</div>
+                                    <div id="llength" alt="llength">2:42</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sb2">
+                <div id="sb2c">
+                    <p id="album">unknown album</p>
+                    <div id="cover"></div>
+                    <div class="scrollable-text">
+                        <p id="title"></p>
+                    </div>
+                    <p id="artist" alt="artist">unknown artist</p>
+                    <div class="sbc">
+                        <div class="ln">
+                            <h1>Artist/Artists</h1>
+                        </div>
+                        <div id="artsinfo">
+                        </div>
+                    </div>
+                    <div class="niq">
+                        <div class="ln">
+                            <h1>Next in queue</h1>
+                        </div>
+                        <div id="ninfo">
+                            <div id="ncover"></div>
+                            <div id="nsinfo">
+                                <p id="ntitle">title</p>
+                                <p id="nartist">artist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bar">
+            <div id="info">
+                <div id="cover2"></div>
+                <div id="bsinfo">
+                    <p id="title2" alt="title">Unknown</p>
+                    <p id="artist2" alt="artist">unknown artist</p>
+                </div>
+            </div>
+            <div id="mp3p">
+                <audio id="audioPlayer" controls="" hidden="">
+                    <source src="" type="audio/mp3">
+                </audio>
+                <div class="controls">
+                    <div id="pleft">
+                        <button id="shuffle">
+                            <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                                class="Svg-sc-ytk21e-0 dYnaPI shuffle">
+                                <path
+                                    d="M13.151.922a.75.75 0 1 0-1.06 1.06L13.109 3H11.16a3.75 3.75 0 0 0-2.873 1.34l-6.173 7.356A2.25 2.25 0 0 1 .39 12.5H0V14h.391a3.75 3.75 0 0 0 2.873-1.34l6.173-7.356a2.25 2.25 0 0 1 1.724-.804h1.947l-1.017 1.018a.75.75 0 0 0 1.06 1.06L15.98 3.75 13.15.922zM.391 3.5H0V2h.391c1.109 0 2.16.49 2.873 1.34L4.89 5.277l-.979 1.167-1.796-2.14A2.25 2.25 0 0 0 .39 3.5z">
+                                </path>
+                                <path
+                                    d="m7.5 10.723.98-1.167.957 1.14a2.25 2.25 0 0 0 1.724.804h1.947l-1.017-1.018a.75.75 0 1 1 1.06-1.06l2.829 2.828-2.829 2.828a.75.75 0 1 1-1.06-1.06L13.109 13H11.16a3.75 3.75 0 0 1-2.873-1.34l-.787-.938z">
+                                </path>
+                            </svg>
+                        </button>
+                        <button id="prevBtn">
+                            <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                                class="Svg-sc-ytk21e-0 dYnaPI">
+                                <path
+                                    d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <button id="playBtn"></button>
+                    <div id="prght">
+                        <button id="nextBtn">
+                            <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                                class="Svg-sc-ytk21e-0 dYnaPI nxtbtn">
+                                <path
+                                    d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z">
+                                </path>
+                            </svg>
+                        </button>
+                        <button id="repeat">
+                            <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                                class="Svg-sc-ytk21e-0 dYnaPI repeat">
+                                <path
+                                    d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75H9.81l1.018 1.018a.75.75 0 1 1-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 1 1 1.06 1.06L9.811 12h2.439a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75v-5z">
+                                </path>
+                            </svg>
+                            <p id="one" class="one">1</p>
+                        </button>
+                    </div>
+                </div>
+                <div id="ncontrol">
+                    <span id="currentTime">0:00</span>
+                    <div class="prange-container">
+                        <input type="range" id="progressBar" name="progressBar" min="0" max="100" value="0"
+                            class="prange-thumb" step="1">
+                        <div class="prange-track" id="prange-track"></div>
+                    </div>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+            <div id="br">
+                <div id="sidebar2">
+                    <svg id="ocg" data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16"
+                        class="Svg-sc-ytk21e-0 dYnaPI">
+                        <path d="M11.196 8 6 5v6l5.196-3z"></path>
+                        <path
+                            d="M15.002 1.75A1.75 1.75 0 0 0 13.252 0h-10.5a1.75 1.75 0 0 0-1.75 1.75v12.5c0 .966.783 1.75 1.75 1.75h10.5a1.75 1.75 0 0 0 1.75-1.75V1.75zm-1.75-.25a.25.25 0 0 1 .25.25v12.5a.25.25 0 0 1-.25.25h-10.5a.25.25 0 0 1-.25-.25V1.75a.25.25 0 0 1 .25-.25h10.5z">
+                        </path>
+                    </svg>
+                </div>
+                <svg data-encore-id="icon" role="presentation" aria-label="Volume high" aria-hidden="true"
+                    id="volume-icon" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 kcUFwU">
+                    <path
+                        d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z">
+                    </path>
+                    <path d="M11.5 13.614a5.752 5.752 0 0 0 0-11.228v1.55a4.252 4.252 0 0 1 0 8.127v1.55z"></path>
+                </svg>
+
+                <div class="vrange-container">
+                    <input type="range" id="volumeControl" name="volumeControl" min="0" max="100" value="50"
+                        class="vrange-thumb" step="1">
+                    <div class="vrange-track"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="./spotify.js"></script>
+</body>
+
+</html>

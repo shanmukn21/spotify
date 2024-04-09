@@ -260,13 +260,16 @@ body {
     display: flex;
     flex-direction: row;
 }
+#scount{
+    text-align: right;
+}
 
 #lcount {
     color: #a7a7a7;
 }
 
 .songsd p {
-    margin-right: 10px;
+    margin-right: 5px;
     font-size: 14px;
     font-weight: 400;
 }
@@ -376,7 +379,7 @@ button {
     color: #a7a7a7;
 }
 
-label {
+button p,#yrlib {
     font-weight: 600;
     color: rgb(179, 179, 179);
 }
@@ -385,7 +388,7 @@ label {
     display: none;
 }
 
-.btns label {
+.btns p {
     margin-left: 20px;
 }
 
@@ -499,7 +502,7 @@ label {
     align-content: center;
 }
 
-#srtby button label {
+#srtby button p {
     margin-right: 5px;
 }
 
@@ -836,10 +839,11 @@ hr {
 
 #lcs,
 #slcs {
+    overflow: hidden;
     width: 40%;
     display: flex;
     flex-direction: row;
-}
+} 
 
 #lcover,
 #slcover {
@@ -902,7 +906,8 @@ hr {
 }
 
 #lserial {
-    width: 16px;
+    min-width: 30px;
+    text-align: right;
 }
 
 
@@ -1096,7 +1101,7 @@ footer h4 {
     #sltitle,
     #lartist,
     #slartist {
-        width: 200px;
+        max-width: 200px;
     }
 
 
@@ -1236,13 +1241,13 @@ input[type="range"] {
 }
 
 .home:hover .Svg-sc-ytk21e-0,
-.home:hover label,
+.home:hover p,
 .lib:hover .Svg-sc-ytk21e-0,
-.lib:hover label,
+.lib:hover p,
 .search:hover .Svg-sc-ytk21e-0,
-.search:hover label,
+.search:hover p,
 #srtby:hover .Svg-sc-ytk21e-0,
-#srtby:hover label {
+#srtby:hover p {
     cursor: pointer;
     color: white;
     fill: white;
@@ -1347,4 +1352,39 @@ input[type="range"] {
     padding: 6px 36px;
     border: 0px solid rgb(36, 36, 36);
     border-radius: 500px;
+}
+#loadd{
+    width: 100%;
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+}
+#disk1{
+    z-index:5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    min-width: 250px;
+    min-height: 250px;
+    background-color: black;
+}
+#disk2{
+    border-radius: 50%;
+    min-width: 175px;
+    min-height: 175px;
+    background-image: url(assets/default_image.png);
+    background-size: cover;
+    animation: rotatedisk 5s linear infinite;
+}
+@keyframes rotatedisk {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
