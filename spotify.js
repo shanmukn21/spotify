@@ -8,6 +8,7 @@ for (i = 0; i < 45; i++) {
         ss = 1;
         nsa = [];
         darr = [];
+
         document.querySelector('.niq').style.display = 'none';
         playmusicsi(slsongInfoDiv);
     });
@@ -15,7 +16,7 @@ for (i = 0; i < 45; i++) {
 for (i = 1; i <= 3; i++) {
     let subfolderContainer = document.querySelector('#sfc' + `${i}`);
     let tfc = parseInt(subfolderContainer.childNodes[3].childNodes[3].textContent);
-    for (j = 1; j <= tfc*2; j=j+2) {
+    for (j = 1; j <= tfc * 2; j = j + 2) {
         let songInfoDiv = document.querySelector('.sfc' + `${i}` + 'f').childNodes[j];
         songInfoDiv.addEventListener('click', () => {
             ss = 0;
@@ -33,6 +34,10 @@ for (i = 1; i <= 3; i++) {
         });
     }
     subfolderContainer.addEventListener('click', () => {
+        if (document.getElementById('mbody').offsetWidth <= 600) {
+            document.getElementById('main').style.display = 'block';
+            document.getElementById('sb').style.display = 'none';
+        }
         subfolderCover = subfolderContainer.childNodes[1];
         subfolderName = subfolderContainer.childNodes[3].childNodes[1].textContent;
         fileCount = subfolderContainer.childNodes[3].childNodes[3].textContent;
@@ -72,15 +77,17 @@ homeb.addEventListener('click', function () {
     }
 });
 function osb2() {
-    document.getElementById('ocg').style.fill = '#1db954';
-    document.getElementById('sb2').style.width = '22.632%';
-    document.getElementById('sb2').style.minWidth = '280px';
-    document.getElementById('main').style.marginLeft = '0px';
-    document.getElementById('top').style.gap = '8px';
-    document.getElementById('sb2c').style.paddingLeft = '16px';
-    document.getElementById('sb2c').style.paddingRight = '16px';
-    sb2c = "green";
-    scrltxt();
+    if (document.getElementById('mbody').offsetWidth > 600) {
+        document.getElementById('ocg').style.fill = '#1db954';
+        document.getElementById('sb2').style.width = '22.632%';
+        document.getElementById('sb2').style.minWidth = '280px';
+        document.getElementById('main').style.marginLeft = '0px';
+        document.getElementById('top').style.gap = '8px';
+        document.getElementById('sb2c').style.paddingLeft = '16px';
+        document.getElementById('sb2c').style.paddingRight = '16px';
+        sb2c = "green";
+        scrltxt();
+    }
 }
 let sidebar2 = document.getElementById('sidebar2');
 sidebar2.addEventListener('click', function () {
@@ -101,28 +108,31 @@ sidebar2.addEventListener('click', function () {
 
 let libraryb = document.querySelector('.lib');
 libraryb.addEventListener('click', function () {
-    if (document.getElementById('sb').style.width == '72px') {
-        var sbd = document.getElementsByClassName('sbd');
-        for (var i = 0; i < sbd.length; i++) {
-            sbd[i].style.display = 'flex';
+    if (document.getElementById('mbody').offsetWidth > 600) {
+
+        if (document.getElementById('sb').style.width == '72px') {
+            var sbd = document.getElementsByClassName('sbd');
+            for (var i = 0; i < sbd.length; i++) {
+                sbd[i].style.display = 'flex';
+            }
+            document.querySelector('.srchflt').style.display = 'flex';
+            document.querySelector('.lh').style.paddingLeft = '0px';
+            document.getElementById('library').style.paddingLeft = '12px';
+            document.getElementById('library').style.paddingRight = '12px';
+            document.getElementById('sb').style.width = '25%';
+            document.getElementById('sb').style.minWidth = '280px';
+        } else {
+            var sbd = document.getElementsByClassName('sbd');
+            for (var i = 0; i < sbd.length; i++) {
+                sbd[i].style.display = 'none';
+            }
+            document.querySelector('.srchflt').style.display = 'none';
+            document.querySelector('.lh').style.paddingLeft = '8px';
+            document.getElementById('library').style.paddingLeft = '4px';
+            document.getElementById('library').style.paddingRight = '4px';
+            document.getElementById('sb').style.width = '72px';
+            document.getElementById('sb').style.minWidth = '72px';
         }
-        document.querySelector('.srchflt').style.display = 'flex';
-        document.querySelector('.lh').style.paddingLeft = '0px';
-        document.getElementById('library').style.paddingLeft = '12px';
-        document.getElementById('library').style.paddingRight = '12px';
-        document.getElementById('sb').style.width = '25%';
-        document.getElementById('sb').style.minWidth = '280px';
-    } else {
-        var sbd = document.getElementsByClassName('sbd');
-        for (var i = 0; i < sbd.length; i++) {
-            sbd[i].style.display = 'none';
-        }
-        document.querySelector('.srchflt').style.display = 'none';
-        document.querySelector('.lh').style.paddingLeft = '8px';
-        document.getElementById('library').style.paddingLeft = '4px';
-        document.getElementById('library').style.paddingRight = '4px';
-        document.getElementById('sb').style.width = '72px';
-        document.getElementById('sb').style.minWidth = '72px';
     }
 });
 
@@ -161,6 +171,25 @@ viewtype.addEventListener('click', function () {
         sfcontainer.style.flexWrap = 'nowrap';
     }
 });
+function filesearchd(songs) {
+    let srchDiv = document.querySelector('.srchinfo');
+    srchDiv.innerHTML = '';
+    songs.forEach((song, index) => {
+        let slsongInfoDiv = createFileInfoDivfs(song, index + 1);
+        srchDiv.appendChild(slsongInfoDiv);
+        displaysFileDetails(song, slsongInfoDiv);
+        slsongInfoDiv.addEventListener('click', () => {
+            if (sb2co === 0) {
+                osb2();
+            }
+            ss = 1;
+            nsa = [];
+            darr = [];
+            document.querySelector('.niq').style.display = 'none';
+            playmusicsi(slsongInfoDiv);
+        });
+    });
+}
 function playmusicsi(snginf) {
     if (snginf) {
         let song = {
@@ -171,11 +200,79 @@ function playmusicsi(snginf) {
         };
         updateSongDetails(song);
         audioPlayer.src = snginf.classList[1];
+
         audioPlayer.play();
+
+
         playBtn.style.backgroundImage = 'url(assets/paus.png)';
     }
 }
+function displaysFileDetails(file, fileInfo) {
+    let jsmediatags = window.jsmediatags;
+    let fileCover = fileInfo.querySelector('#slcover');
+    let fileTitle = fileInfo.querySelector('#sltitle');
+    let fileArtist = fileInfo.querySelector('#slartist');
+    let fileAlbum = fileInfo.querySelector('#slalbum');
+    let fileDateAdded = fileInfo.querySelector('#sldateAdded');
+    let fileLength = fileInfo.querySelector('#sllength');
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", URL.createObjectURL(file), true);
+    xhr.responseType = "blob";
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            let blob = xhr.response;
+
+            jsmediatags.read(blob, {
+                onSuccess: function (tag) {
+                    if (tag && tag.tags) {
+                        fileTitle.textContent = (tag.tags.title || file.name).replace(/\.mp3$/, '');
+                        fileArtist.textContent = tag.tags.artist || 'Unknown Artist';
+                        fileAlbum.textContent = `${tag.tags.album || 'Unknown Album'}`;
+                        fileDateAdded.textContent = `${formatDate(file.lastModifiedDate)}`;
+
+                        getDuration(blob, function (duration) {
+                            fileLength.textContent = `${duration}`;
+                        });
+
+                        if (tag.tags.picture) {
+                            let data = tag.tags.picture.data;
+                            let format = tag.tags.picture.format;
+                            let base64String = "";
+                            if (data) {
+                                for (let i = 0; i < data.length; i++)
+                                    base64String += String.fromCharCode(data[i]);
+                                fileCover.style.backgroundImage = `url(data:${format};base64,${window.btoa(base64String)})`;
+                            }
+                        }
+                    } else {
+                        fileInfo.remove();
+                    }
+                },
+                onError: function (error) {
+                }
+            });
+        }
+    };
+
+    xhr.send();
+}
 let fc, sc;
+function formatDate(inputDate) {
+
+    let dateObj = new Date(inputDate);
+
+    let day = dateObj.getDate();
+    let month = dateObj.getMonth() + 1;
+    let year = dateObj.getFullYear();
+
+    let formattedDay = (day < 10 ? '0' : '') + day;
+    let formattedMonth = (month < 10 ? '0' : '') + month;
+
+    let formattedDate = formattedDay + '/' + formattedMonth + '/' + year;
+
+    return formattedDate;
+}
 function updateSongDetails(song) {
     var divs = document.querySelectorAll('.artist1');
     divs.forEach(function (div) {
@@ -219,13 +316,16 @@ function updateSongDetails(song) {
 }
 
 function scrltxt() {
-    const title = document.getElementById('title');
-    const cover = document.getElementById('cover');
-    const actlwidth = cover.offsetWidth;
-    const textWidth = title.scrollWidth;
-    title.style.setProperty('--text-width', `-${textWidth - actlwidth}px`);
-    const duration = (textWidth - actlwidth) / 3;
-    title.style.animation = `scrollText ${duration}s linear infinite`;
+
+    if (document.getElementById('mbody').offsetWidth > 600) {
+        const title = document.getElementById('title');
+        const cover = document.getElementById('cover');
+        const actlwidth = cover.offsetWidth;
+        const textWidth = title.scrollWidth;
+        title.style.setProperty('--text-width', `-${textWidth - actlwidth}px`);
+        const duration = (textWidth - actlwidth) / 3;
+        title.style.animation = `scrollText ${duration}s linear infinite`;
+    }
 }
 function updatenxtinq(song) {
     let niqTitle = document.getElementById('ntitle');
@@ -417,7 +517,9 @@ function cz() {
 function nsd() {
     nsc = sc;
     let niq = document.querySelector('.niq');
-    niq.style.display = 'flex';
+    if (document.getElementById('mbody').offsetWidth > 600) {
+        niq.style.display = 'flex';
+    }
     if (nsa.length > 0) {
         nsc = nsa[nsa.length - 1];
     } else {
@@ -630,5 +732,94 @@ rgt.addEventListener('click', function () {
         rgtc = 1;
         document.getElementById(lstn).click();
         rgtc = 0;
+    }
+});
+
+let shome = document.getElementById('shome');
+shome.addEventListener('click', function () {
+    homeb.click();
+    csb();
+});
+
+let ssearch = document.getElementById('ssearch');
+ssearch.addEventListener('click', function () {
+    searchb.click();
+    csb();
+});
+
+let slib = document.getElementById('slib');
+slib.addEventListener('click', function () {
+    document.getElementById('main').style.display = 'none';
+    document.getElementById('sb').style.display = 'block';
+});
+function csb() {
+    document.getElementById('main').style.display = 'block';
+    document.getElementById('sb').style.display = 'none';
+}
+let down = document.querySelector('.down');
+let downs = document.querySelector('.downs');
+let floatinginfo = document.getElementById('bar');
+floatinginfo.addEventListener('click', function () {
+    if (document.getElementById('mbody').offsetWidth <= 600) {
+        down.style.transform = 'rotate(-90deg)';
+        down.style.backgroundColor = 'rgb(18, 18, 18)';
+        downs.style.width = '24px';
+        downs.style.height = '24px';
+        floatinginfo.childNodes[1].style.display = 'none';
+        document.getElementById('mp3p').style.flexDirection = 'column-reverse';
+        document.getElementById('bar').style.backgroundColor = 'rgb(18,18,18)';
+        document.querySelector('.prange-container').style.top = '-30px';
+        document.querySelector('#mp3p').style.left = '0%';
+        document.querySelector('.prange-container').style.height = '4px';
+        document.querySelector('.prange-thumb').style.height = '4px';
+        document.querySelector('.prange-track').style.height = '4px';
+        
+        playBtn.style.display='flex';
+        
+        playBtn.style.marginLeft = '10px';
+        playBtn.style.marginTop = '-8px';
+        playBtn.style.minHeight = '56px';
+        playBtn.style.minWidth = '56px';
+        playBtn.style.left = '0%';
+        playBtn.style.top = '0px';
+        document.querySelector('#rgt').style.display = 'none';
+        document.querySelector('.controls').style.top = '20px';
+        document.querySelector('.mobilenav').style.display = 'none';
+        document.getElementById('sb2').style.width = '100%';
+        document.getElementById('sb2').style.minWidth = '100%';
+        document.getElementById('sb2c').style.paddingLeft = '12px';
+        document.getElementById('sb2c').style.paddingRight = '12px';
+        var sbd = document.getElementsByClassName('dh');
+        for (var i = 0; i < sbd.length; i++) {
+            sbd[i].style.display = 'flex';
+        }
+    }
+});
+down.addEventListener('click', function () {
+    if (document.getElementById('mbody').offsetWidth <= 600) {
+        down.style.transform = 'rotate(0deg)';
+        down.style.backgroundColor = 'rgb(0, 0, 0, .7)';
+        downs.style.width = '16px';
+        downs.style.height = '16px';
+        floatinginfo.childNodes[1].style.display = 'flex';
+        document.getElementById('mp3p').style.flexDirection = 'column';
+        document.getElementById('bar').style.backgroundColor = 'black';
+        document.querySelector('.prange-container').style.top = '0px';
+        document.querySelector('#mp3p').style.left = '-29%';
+        document.querySelector('.prange-container').style.height = '2px';
+        document.querySelector('.prange-thumb').style.height = '2px';
+        document.querySelector('.prange-track').style.height = '2px';
+        playBtn.style.display='none';
+        document.querySelector('#rgt').style.display = 'inline-flex';
+        document.querySelector('.controls').style.top = '0px';
+        document.querySelector('.mobilenav').style.display = 'flex';
+        document.getElementById('sb2').style.width = '0%';
+        document.getElementById('sb2').style.minWidth = '0%';
+        document.getElementById('sb2c').style.paddingLeft = '0px';
+        document.getElementById('sb2c').style.paddingRight = '0px';
+        var sbd = document.getElementsByClassName('dh');
+        for (var i = 0; i < sbd.length; i++) {
+            sbd[i].style.display = 'none';
+        }
     }
 });

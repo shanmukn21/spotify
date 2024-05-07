@@ -4,7 +4,6 @@
     font-size: 1rem;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-
 }
 
 body {
@@ -260,7 +259,8 @@ body {
     display: flex;
     flex-direction: row;
 }
-#scount{
+
+#scount {
     text-align: right;
 }
 
@@ -379,7 +379,8 @@ button {
     color: #a7a7a7;
 }
 
-button p,#yrlib {
+button p,
+#yrlib {
     font-weight: 600;
     color: rgb(179, 179, 179);
 }
@@ -741,11 +742,16 @@ button p,#yrlib {
 }
 
 #ncontrol {
-    justify-content: space-evenly;
+    position: relative;
+    top: 0px;
     width: 100%;
     height: 16px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    column-gap: 8px;
 }
 
 #pleft,
@@ -843,7 +849,7 @@ hr {
     width: 40%;
     display: flex;
     flex-direction: row;
-} 
+}
 
 #lcover,
 #slcover {
@@ -963,6 +969,7 @@ hr {
 }
 
 ::-webkit-scrollbar {
+    height: 0px;
     width: 0px;
     background-color: rgb(18, 18, 18);
 }
@@ -1035,14 +1042,6 @@ hr {
     background-color: rgb(57, 57, 57);
 }
 
-#ncontrol {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    column-gap: 8px;
-}
-
 #currentTime {
     text-align: right;
 }
@@ -1106,34 +1105,43 @@ footer h4 {
 
 
     .mnb #info,
-    #tinfo,#sinfo {
+    #tinfo,
+    #sinfo {
         width: 91%;
     }
 
 }
 
 @media (max-width:1200px) {
-    #ldateAdded,#sldateAdded {
+
+    #ldateAdded,
+    #sldateAdded {
         display: none;
     }
 
-    #lalbum,#slalbum {
+    #lalbum,
+    #slalbum {
         width: 45%;
     }
 }
 
 @media (max-width:1150px) {
-    #lalbum,#slalbum {
+
+    #lalbum,
+    #slalbum {
         width: 40%;
     }
 }
 
 @media (max-width:1079px) {
-    #lalbum,#slalbum {
+
+    #lalbum,
+    #slalbum {
         display: none;
     }
 
-    #lcs,#slcs {
+    #lcs,
+    #slcs {
         width: 80%;
     }
 }
@@ -1196,6 +1204,12 @@ input[type="range"] {
 .prange-container:hover .prange-track,
 .vrange-container:hover .vrange-track {
     background: #1db954;
+}
+
+#progressBar,
+#volumeControl {
+    width: 12px;
+    height: 12px;
 }
 
 #progressBar,
@@ -1333,38 +1347,192 @@ input[type="range"] {
     border: 0px solid rgb(36, 36, 36);
     border-radius: 500px;
 }
-#loadd{
-    width: 100%;
-    position: absolute;
+
+#playBtn path {
     display: none;
-    align-items: center;
-    justify-content: center;
-    height:100vh;
 }
-#disk1{
-    z-index:5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    min-width: 250px;
-    min-height: 250px;
-    background-color: black;
+.mobilenav{
+    display: none;
 }
-#disk2{
-    border-radius: 50%;
-    min-width: 175px;
-    min-height: 175px;
-    background-image: url(assets/default_image.png);
-    background-size: cover;
-    animation: rotatedisk 5s linear infinite;
-}
-@keyframes rotatedisk {
-    0% {
-        transform: rotate(0);
+@media (max-width:600px) {
+    .main #home {
+        padding: 0px;
     }
 
-    100% {
-        transform: rotate(360deg);
+    #top,
+    #main {
+        border-radius: 0px;
+        margin: 0px;
+    }
+
+    #top {
+        height: calc(100% - 136px);
+    }
+
+    .filt {
+        margin-left: 16px;
+    }
+
+    .main {
+        min-width: 0px;
+    }
+
+    #mp3p {
+        top: -20px;
+        left: -29%;
+        position: relative;
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .prange-container {
+        height: 2px;
+        bottom: -3.75px;
+        width: 100%;
+    }
+
+    #mp3p .dh {
+        display: none;
+    }
+
+    #mp3p .controls {
+        column-gap: 200%;
+        position: relative;
+        right: -48%;
+    }
+
+    #pleft,
+    #prght {
+        column-gap: 800%;
+    }
+
+    .controls #playBtn {
+        left:850%;
+        position: relative;
+        top:35px;
+        background-image: none;
+        background-color: transparent;
+    }
+
+    .controls #playBtn .pp1 {
+        display: block;
+    }
+
+    .controls {
+        width: 20px;
+    }
+
+    .controls svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .playlists {
+        overflow-x: scroll;
+        flex-wrap: nowrap;
+    }
+
+    #bar {
+        position: relative;
+        border-radius: 8px;
+        margin: 0px 8px 0px 8px;
+        padding: 0px 8px 0px 8px;
+        color: white;
+        width: 100%-16px;
+        min-height: 56px;
+        height: 56px;
+        max-height: 56px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #1db954;
+    }
+
+    #bar #cover2 {
+        min-width: 40px;
+        min-height: 40px;
+        width: 40px;
+        height: 40px;
+    }
+
+    #br,
+    .btns,
+    #sb,
+    .sbc,
+    .niq {
+        display: none;
+    }
+
+    #mbody {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .mobilenav {
+        width: 100%;
+        min-height: 80px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .mobilenav svg {
+        width: 30px;
+    }
+
+    #bsinfo {
+        min-width: 200px;
+    }
+
+    .prange-thumb,
+    .prange-track {
+        height: 2px;
+    }
+
+    #sb {
+        max-width: 95.5%;
+        width: 100%;
+    }
+
+    #library {
+        width: 100%;
+        height: 100%;
+    }
+
+    #top {
+        overflow: hidden;
+    }
+
+    #progressBar {
+        position: absolute;
+    }
+
+    #album {
+        align-self: center;
+    }
+
+    #currentTime,
+    #duration {
+        position: absolute;
+    }
+
+    #duration {
+        right: -15px;
+    }
+
+    #mbody {
+        background-color: rgb(18, 18, 18);
+    }
+
+    #ncontrol {
+        top: 25px;
+    }
+
+    #sb2c {
+        height: 95%;
+        justify-content: space-between;
+        border-radius: 0px;
     }
 }
