@@ -27,6 +27,10 @@ body {
     flex-direction: row;
 }
 
+.barb {
+    display: none;
+}
+
 #bar {
     margin: 8px;
     color: white;
@@ -111,8 +115,7 @@ body {
 }
 
 .srchd {
-    padding: 16px;
-    padding-top: 0px;
+    padding: 0px 16px 150px 16px;
     display: none;
 }
 
@@ -171,6 +174,13 @@ body {
 
 #rgt svg {
     transform: rotate(180deg);
+}
+
+#sssearch {
+    height: 20px;
+    top: 5px;
+    left: 115px;
+    position: relative;
 }
 
 .foldrinf {
@@ -430,7 +440,7 @@ button p,
 #libf path {
     min-width: 16px;
     min-height: 16px;
-    ;
+
 }
 
 #queue:hover {
@@ -1324,12 +1334,13 @@ input[type="range"] {
 }
 
 #searchFolder.active #folderSearchInput {
-    width: 96px;
-    height: 16px;
+    width: 166px;
+    height: 32px;
     padding: 8px 32px;
 }
 
 .srchhdr {
+    color: black;
     padding-top: 6px;
     padding-bottom: 6px;
     z-index: 0;
@@ -1351,9 +1362,11 @@ input[type="range"] {
 #playBtn path {
     display: none;
 }
-.mobilenav{
+
+.mobilenav {
     display: none;
 }
+
 @media (max-width:600px) {
     .main #home {
         padding: 0px;
@@ -1366,18 +1379,51 @@ input[type="range"] {
     }
 
     #top {
-        height: calc(100% - 136px);
+        height: calc(100vh);
+        /* min-height: 100vh-256px; */
+        overflow: hidden;
     }
 
-    .filt {
-        margin-left: 16px;
+    #home .filt {
+        padding-top: 32px;
+        margin-left: 0px;
+        padding-left: 16px;
     }
 
     .main {
+        background-color: black;
         min-width: 0px;
     }
 
+    #library,
+    #sb2c,
+    .stky,
+    #tinfo,
+    #viewtype,
+    .srchhdr,
+    #home .filt {
+        background-color: black;
+    }
+
+    .srchhdr {
+        border: 0px black;
+    }
+
+    #lftrgt {
+        display: none;
+    }
+
+    #searchInput {
+        height: 45px;
+        margin-left: 0px;
+        width: 100%;
+        background-color: white;
+        color: black;
+        border-radius: 8px;
+    }
+
     #mp3p {
+        z-index: 1;
         top: -20px;
         left: -29%;
         position: relative;
@@ -1408,10 +1454,9 @@ input[type="range"] {
     }
 
     .controls #playBtn {
-        left:850%;
+        left: 650%;
         position: relative;
-        top:35px;
-        background-image: none;
+        top: 35px;
         background-color: transparent;
     }
 
@@ -1433,13 +1478,38 @@ input[type="range"] {
         flex-wrap: nowrap;
     }
 
+    #logos {
+        margin-bottom: 200px;
+    }
+
+    .one {
+        top: 7.5px;
+    }
+
+    .repeat {
+        top: 1px;
+    }
+
+    .barb {
+        display: flex;
+        z-index: 0;
+        position: fixed;
+        background:linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+        bottom:78px;
+        min-height: 56px;
+        height: 56px;
+        max-height: 56px;
+        width: 100%;
+    }
+
     #bar {
-        position: relative;
+        bottom: 78px;
+        position: fixed;
         border-radius: 8px;
         margin: 0px 8px 0px 8px;
         padding: 0px 8px 0px 8px;
         color: white;
-        width: 100%-16px;
+        width: 92%;
         min-height: 56px;
         height: 56px;
         max-height: 56px;
@@ -1447,7 +1517,7 @@ input[type="range"] {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        background-color: #1db954;
+        background-color: #242424;
     }
 
     #bar #cover2 {
@@ -1468,9 +1538,13 @@ input[type="range"] {
     #mbody {
         min-width: 100%;
         width: 100%;
+        background-color: black;
     }
 
     .mobilenav {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
+        position: fixed;
+        bottom: -1;
         width: 100%;
         min-height: 80px;
         display: flex;
@@ -1501,10 +1575,6 @@ input[type="range"] {
         height: 100%;
     }
 
-    #top {
-        overflow: hidden;
-    }
-
     #progressBar {
         position: absolute;
     }
@@ -1522,17 +1592,36 @@ input[type="range"] {
         right: -15px;
     }
 
-    #mbody {
-        background-color: rgb(18, 18, 18);
-    }
-
     #ncontrol {
         top: 25px;
     }
 
+    button #lft {
+        background-color: black;
+    }
+
     #sb2c {
-        height: 95%;
+        overflow: hidden;
+        height: 78%;
         justify-content: space-between;
         border-radius: 0px;
+    }
+
+    #bar #info {
+        z-index: 2;
+    }
+
+    #sssearch {
+        top: 32px;
+        left: 5px;
+        position: relative;
+    }
+
+    #sssearch path {
+        fill: black
+    }
+
+    .mnb {
+        padding-bottom: 150px;
     }
 }

@@ -717,11 +717,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let lft = document.getElementById('lft');
 lft.addEventListener('click', function () {
-    if (lfta.length > 1) {
-        rgta.push(lfta.pop());
-        rgtc = 1;
-        document.getElementById(lfta.pop()).click();
-        rgtc = 0;
+    if (document.getElementById('mbody').offsetWidth > 600) {
+        if (lfta.length > 1) {
+            rgta.push(lfta.pop());
+            rgtc = 1;
+            document.getElementById(lfta.pop()).click();
+            rgtc = 0;
+        }
     }
 });
 
@@ -758,24 +760,25 @@ function csb() {
 }
 let down = document.querySelector('.down');
 let downs = document.querySelector('.downs');
-let floatinginfo = document.getElementById('bar');
+let floatinginfo = document.querySelector('.floatinginfo');
+let bar = document.getElementById('bar');
 floatinginfo.addEventListener('click', function () {
     if (document.getElementById('mbody').offsetWidth <= 600) {
+        if (document.querySelector('#sb').style.display === 'block') {
+            document.querySelector('#sb').style.display = 'none';
+            document.querySelector('#main').style.display = 'block';
+        }
         down.style.transform = 'rotate(-90deg)';
-        down.style.backgroundColor = 'rgb(18, 18, 18)';
         downs.style.width = '24px';
         downs.style.height = '24px';
-        floatinginfo.childNodes[1].style.display = 'none';
+        bar.childNodes[1].style.display = 'none';
         document.getElementById('mp3p').style.flexDirection = 'column-reverse';
-        document.getElementById('bar').style.backgroundColor = 'rgb(18,18,18)';
-        document.querySelector('.prange-container').style.top = '-30px';
+        document.getElementById('bar').style.backgroundColor = '#000000';
+        document.querySelector('.prange-container').style.bottom = '10.75px';
         document.querySelector('#mp3p').style.left = '0%';
         document.querySelector('.prange-container').style.height = '4px';
         document.querySelector('.prange-thumb').style.height = '4px';
         document.querySelector('.prange-track').style.height = '4px';
-        
-        playBtn.style.display='flex';
-        
         playBtn.style.marginLeft = '10px';
         playBtn.style.marginTop = '-8px';
         playBtn.style.minHeight = '56px';
@@ -783,6 +786,7 @@ floatinginfo.addEventListener('click', function () {
         playBtn.style.left = '0%';
         playBtn.style.top = '0px';
         document.querySelector('#rgt').style.display = 'none';
+        document.querySelector('#lftrgt').style.display = 'flex';
         document.querySelector('.controls').style.top = '20px';
         document.querySelector('.mobilenav').style.display = 'none';
         document.getElementById('sb2').style.width = '100%';
@@ -798,19 +802,23 @@ floatinginfo.addEventListener('click', function () {
 down.addEventListener('click', function () {
     if (document.getElementById('mbody').offsetWidth <= 600) {
         down.style.transform = 'rotate(0deg)';
-        down.style.backgroundColor = 'rgb(0, 0, 0, .7)';
         downs.style.width = '16px';
         downs.style.height = '16px';
-        floatinginfo.childNodes[1].style.display = 'flex';
+        bar.childNodes[1].style.display = 'flex';
         document.getElementById('mp3p').style.flexDirection = 'column';
-        document.getElementById('bar').style.backgroundColor = 'black';
-        document.querySelector('.prange-container').style.top = '0px';
+        document.getElementById('bar').style.backgroundColor = '#242424';
+        document.querySelector('.prange-container').style.bottom = '-3.75px';
         document.querySelector('#mp3p').style.left = '-29%';
         document.querySelector('.prange-container').style.height = '2px';
         document.querySelector('.prange-thumb').style.height = '2px';
         document.querySelector('.prange-track').style.height = '2px';
-        playBtn.style.display='none';
-        document.querySelector('#rgt').style.display = 'inline-flex';
+        playBtn.style.marginLeft = '0px';
+        playBtn.style.marginTop = '0px';
+        playBtn.style.minHeight = '32px';
+        playBtn.style.minWidth = '32px';
+        playBtn.style.left = '650%';
+        playBtn.style.top = '35px';
+        document.querySelector('#lftrgt').style.display = 'none';
         document.querySelector('.controls').style.top = '0px';
         document.querySelector('.mobilenav').style.display = 'flex';
         document.getElementById('sb2').style.width = '0%';
