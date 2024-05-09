@@ -1380,7 +1380,6 @@ input[type="range"] {
 
     #top {
         height: calc(100vh);
-        /* min-height: 100vh-256px; */
         overflow: hidden;
     }
 
@@ -1454,6 +1453,7 @@ input[type="range"] {
     }
 
     .controls #playBtn {
+        display: none;
         left: 650%;
         position: relative;
         top: 35px;
@@ -1495,7 +1495,7 @@ input[type="range"] {
         z-index: 0;
         position: fixed;
         background:linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
-        bottom:78px;
+        bottom:78.8125px;
         min-height: 56px;
         height: 56px;
         max-height: 56px;

@@ -1,3 +1,5 @@
+let lngth = 1.85 * document.getElementById('mbody').offsetWidth;
+let slngth = lngth + '%';
 let pmp = 1, ss = 0, cnt = 1, cnts, rgtc = 0, lstn, lfta = ['homeb'], arr = [], darr = [], nsa = [], num, i, j; let rgta = [], sb2co = 0, sb2c = "grey", psc = 1, k;
 for (i = 0; i < 45; i++) {
     let slsongInfoDiv = document.querySelector('.si' + `${i + 1}`);
@@ -191,6 +193,9 @@ function filesearchd(songs) {
     });
 }
 function playmusicsi(snginf) {
+    playBtn.style.left = `${slngth}`;
+    playBtn.style.display = 'flex';
+
     if (snginf) {
         let song = {
             title: snginf.querySelector('#sltitle').textContent,
@@ -343,6 +348,9 @@ ninfo.addEventListener('click', function () {
 });
 
 function playmusic(snginf) {
+    playBtn.style.left = `${slngth}`;
+    playBtn.style.display = 'flex';
+
     if (snginf) {
         let song = {
             title: snginf.querySelector('#ltitle').textContent,
@@ -779,6 +787,7 @@ floatinginfo.addEventListener('click', function () {
         document.querySelector('.prange-container').style.height = '4px';
         document.querySelector('.prange-thumb').style.height = '4px';
         document.querySelector('.prange-track').style.height = '4px';
+        playBtn.style.display = 'flex';
         playBtn.style.marginLeft = '10px';
         playBtn.style.marginTop = '-8px';
         playBtn.style.minHeight = '56px';
@@ -816,7 +825,7 @@ down.addEventListener('click', function () {
         playBtn.style.marginTop = '0px';
         playBtn.style.minHeight = '32px';
         playBtn.style.minWidth = '32px';
-        playBtn.style.left = '650%';
+        playBtn.style.left = `${slngth}`;
         playBtn.style.top = '35px';
         document.querySelector('#lftrgt').style.display = 'none';
         document.querySelector('.controls').style.top = '0px';
