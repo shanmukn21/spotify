@@ -179,7 +179,7 @@ body {
 #sssearch {
     height: 20px;
     top: 5px;
-    left: 115px;
+    left: 87px;
     position: relative;
 }
 
@@ -402,7 +402,9 @@ button p,
 .btns p {
     margin-left: 20px;
 }
-
+#yrlib:hover {
+    color: white;
+}
 #yrlib {
     margin-left: 12px;
 }
@@ -1350,7 +1352,7 @@ input[type="range"] {
 }
 
 #searchInput {
-    margin-left: 78px;
+    margin-left: 50px;
     background-color: rgb(36, 36, 36);
     width: 292px;
     height: 36px;
@@ -1393,7 +1395,9 @@ input[type="range"] {
         background-color: black;
         min-width: 0px;
     }
-
+#sb2{
+    border-radius: 0px;
+}
     #library,
     #sb2c,
     .stky,
@@ -1623,5 +1627,19 @@ input[type="range"] {
 
     .mnb {
         padding-bottom: 150px;
+    }
+    #lftrgt button,.controls button {
+        background-color: transparent;
+    }
+    .pdetails{
+        margin: 20px 0px 20px 16px;
+        width:auto;
+        padding: 0px;
+        background-color: #000;
+    }
+    .pcover {
+        border-radius: 4px;
+        min-width: 152px;
+        min-height: 152px;
     }
 }
