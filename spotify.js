@@ -279,7 +279,7 @@ function playmusic(snginf) {
         };
         updateSongDetails(song);
         nsd();
-        if (sc !== nsc) {
+        if (psc === 1) {
             darr.push(sc);
         }
         audioPlayer.src = snginf.classList[1];
@@ -346,11 +346,33 @@ gpb.addEventListener('click', function () {
 let prevsng;
 prevBtn.addEventListener('click', function () {
     if (ss === 0) {
+        psc = 0;
         if (darr.length > 1) {
             nsa.push(darr.pop());
             sc = darr.pop();
             playmusic(document.querySelector('.' + `${cnts}` + 'fs' + `${sc}`));
+        } else {
+            if (rptc === 'green') {
+                if (sc === 1) {
+                    sc = fc;
+                } else {
+                    sc = sc - 1;
+                }
+                nsa.push(sc);
+                nspm(sc);
+            } else {
+                if (sc !== 1) {
+                    sc = sc - 1;
+                    nsa.push(sc);
+                    nspm(sc);
+                }
+            }
         }
+        console.log('nsa:', nsa);
+        console.log('darr:', darr);
+        console.log('sc:', sc);
+        console.log('nsc:', nsc);
+        console.log('psc:', psc);
         nsd();
     }
 });
@@ -359,10 +381,14 @@ nextBtn.addEventListener('click', function () {
     if (ss === 0) {
         pmp = 1;
         if (nsa.length > 0) {
+            if (psc === 0)
+                nsa.pop();
             nsc = nsa.pop();
             sc = nsc;
+            psc = 1;
             nspm(sc);
         } else {
+            psc = 1;
             if (rptc === 'green') {
                 if (sflc === 'grey') {
                     if (sc === fc) {
@@ -398,6 +424,11 @@ nextBtn.addEventListener('click', function () {
                 }
             }
         }
+        console.log('nsa:', nsa);
+        console.log('darr:', darr);
+        console.log('sc:', sc);
+        console.log('nsc:', nsc);
+        console.log('psc:', psc);
         nsd();
     }
 });
@@ -447,8 +478,12 @@ function nsd() {
     if (document.getElementById('mbody').offsetWidth > 600) {
         niq.style.display = 'flex';
     }
-    if (nsa.length > 0) {
-        nsc = nsa[nsa.length - 1];
+    if (nsa.length > 2) {
+        // if (psc === 0) {
+        //     nsc = nsa[nsa.length - 3];
+        // } else {
+        //     nsc = nsa[nsa.length - 2];
+        // }
     } else {
         if (rptc === 'green') {
             if (sflc === 'grey') {
@@ -479,7 +514,7 @@ function nsd() {
             }
         }
     }
-
+    console.log('niq:', nsc);
     let nsxtsng = document.querySelector('.' + `${cnts}` + 'fs' + `${nsc}`);
     if (nsxtsng) {
         let nxtsngd = {
@@ -535,16 +570,6 @@ playBtn.addEventListener('click', function () {
         audioPlayer.pause();
         playBtn.style.backgroundImage = 'url(assets/play.png)';
     }
-});
-
-volumeControl.addEventListener('input', function () {
-    audioPlayer.volume = volumeControl.value / 100;
-});
-
-audioPlayer.addEventListener('timeupdate', function () {
-    let progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-    progressBar.value = progress;
-    currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
 });
 
 progressBar.addEventListener('input', function () {
@@ -626,20 +651,22 @@ libSearchButton.addEventListener('click', function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    var stickyDiv = document.querySelector('.stky');
-    var gpbDiv = document.querySelector('.gpb');
-    var scrollDiv = document.querySelector('#sd');
-    function updatePosition() {
-        var currentOffset = stickyDiv.getBoundingClientRect().top;
-        if (currentOffset <= 55) {
-            stickyDiv.classList.add('sticky');
-            gpbDiv.style.transform = 'translateX(80px)';
-        } else {
-            stickyDiv.classList.remove('sticky');
-            gpbDiv.style.transform = 'translateX(0)';
+    if (document.getElementById('mbody').offsetWidth > 600) {
+        var stickyDiv = document.querySelector('.stky');
+        var gpbDiv = document.querySelector('.gpb');
+        var scrollDiv = document.querySelector('#sd');
+        function updatePosition() {
+            var currentOffset = stickyDiv.getBoundingClientRect().top;
+            if (currentOffset <= 55) {
+                stickyDiv.classList.add('sticky');
+                gpbDiv.style.transform = 'translateX(80px)';
+            } else {
+                stickyDiv.classList.remove('sticky');
+                gpbDiv.style.transform = 'translateX(0)';
+            }
         }
+        scrollDiv.addEventListener('scroll', updatePosition);
     }
-    scrollDiv.addEventListener('scroll', updatePosition);
 });
 
 let lft = document.getElementById('lft');

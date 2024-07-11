@@ -58,7 +58,7 @@ body {
 .main {
     flex: 1;
     height: 100%;
-    min-width: 416px;
+    min-width: 475px;
     margin-left: 8px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -177,8 +177,8 @@ body {
 }
 
 #sssearch {
-    height: 20px;
-    top: 5px;
+    height: 16px;
+    top: 3px;
     left: 87px;
     position: relative;
 }
@@ -402,9 +402,11 @@ button p,
 .btns p {
     margin-left: 20px;
 }
-#yrlib:hover {
+
+.lib:hover #yrlib {
     color: white;
 }
+
 #yrlib {
     margin-left: 12px;
 }
@@ -1168,7 +1170,6 @@ input[type="range"] {
 }
 
 .prange-container {
-
     margin-top: 5px;
     width: 87.076%;
 }
@@ -1192,7 +1193,7 @@ input[type="range"] {
 .vrange-track {
     margin-top: auto;
     margin-bottom: auto;
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 4px;
     cursor: pointer;
@@ -1220,8 +1221,12 @@ input[type="range"] {
 
 #progressBar,
 #volumeControl {
-    width: 12px;
-    height: 12px;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #progressBar,
@@ -1244,6 +1249,15 @@ input[type="range"] {
         border-radius: 50%;
         background-color: white;
     }
+}
+
+#volumeControl:hover::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
 }
 
 .home:hover .Svg-sc-ytk21e-0,
@@ -1354,11 +1368,15 @@ input[type="range"] {
 #searchInput {
     margin-left: 50px;
     background-color: rgb(36, 36, 36);
-    width: 292px;
-    height: 36px;
+    min-width: 364px;
+    min-height: 48px;
     padding: 6px 36px;
     border: 0px solid rgb(36, 36, 36);
-    border-radius: 500px;
+    border-radius: 48px;
+}
+
+#searchInput::selection {
+    outline: 2px white;
 }
 
 #playBtn path {
@@ -1395,9 +1413,11 @@ input[type="range"] {
         background-color: black;
         min-width: 0px;
     }
-#sb2{
-    border-radius: 0px;
-}
+
+    #sb2 {
+        border-radius: 0px;
+    }
+
     #library,
     #sb2c,
     .stky,
@@ -1408,8 +1428,12 @@ input[type="range"] {
         background-color: black;
     }
 
+    .srchinfo {
+        margin-top: 36px;
+    }
+
     .srchhdr {
-        border: 0px black;
+        max-height: 45px;
     }
 
     #lftrgt {
@@ -1417,12 +1441,15 @@ input[type="range"] {
     }
 
     #searchInput {
+        padding: 6px 48px;
+        margin-top: -1px;
         height: 45px;
         margin-left: 0px;
         width: 100%;
         background-color: white;
         color: black;
         border-radius: 8px;
+        border: 0px solid #000;
     }
 
     #mp3p {
@@ -1498,8 +1525,8 @@ input[type="range"] {
         display: flex;
         z-index: 0;
         position: fixed;
-        background:linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
-        bottom:78.8125px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+        bottom: 78.8125px;
         min-height: 56px;
         height: 56px;
         max-height: 56px;
@@ -1616,8 +1643,9 @@ input[type="range"] {
     }
 
     #sssearch {
-        top: 32px;
-        left: 5px;
+        height:24px;
+        top: 35px;
+        left: 16px;
         position: relative;
     }
 
@@ -1628,15 +1656,19 @@ input[type="range"] {
     .mnb {
         padding-bottom: 150px;
     }
-    #lftrgt button,.controls button {
+
+    #lftrgt button,
+    .controls button {
         background-color: transparent;
     }
-    .pdetails{
+
+    .pdetails {
         margin: 20px 0px 20px 16px;
-        width:auto;
+        width: auto;
         padding: 0px;
         background-color: #000;
     }
+
     .pcover {
         border-radius: 4px;
         min-width: 152px;
