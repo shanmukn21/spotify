@@ -34,6 +34,7 @@ body {
 #bar {
     margin: 8px;
     color: white;
+    min-width: 825px;
     min-height: 72px;
     height: 72px;
     max-height: 72px;
@@ -387,12 +388,15 @@ button {
 .lib svg:hover {
     fill: white;
     color: #a7a7a7;
+    transition: fill 0.3s ease;
+    transition: color 0.5s ease;
 }
 
 button p,
 #yrlib {
     font-weight: 600;
     color: rgb(179, 179, 179);
+    transition: color 0.5s ease;
 }
 
 #folder-input {
@@ -405,6 +409,7 @@ button p,
 
 .lib:hover #yrlib {
     color: white;
+    transition: color 0.5s ease;
 }
 
 #yrlib {
@@ -439,6 +444,7 @@ button p,
 
 #libf button:hover .dYnaPI {
     fill: white;
+    transition: fill 0.3s ease;
 }
 
 #libf path {
@@ -453,6 +459,7 @@ button p,
 
 .Svg-sc-ytk21e-0 {
     fill: rgb(179, 179, 179);
+    transition: fill 0.5s ease;
 }
 
 .lh button {
@@ -467,6 +474,7 @@ button p,
     min-height: 16px;
     max-width: 16px;
     max-height: 16px;
+    transition: fill 0.5s ease;
 }
 
 #library .filt {
@@ -1308,10 +1316,11 @@ input[type="range"] {
     color: white;
     background-color: rgb(42, 42, 42);
     width: 0px;
-    height: 0px;
+    min-height: 32px;
+    outline: none;
     padding: 0px 0px;
     border: 0px solid rgb(42, 42, 42);
-    transition: width 0.5s ease;
+    transition: width 0.3s ease-in, padding 0.3s ease-in;
 }
 
 #libsearch {
@@ -1342,18 +1351,21 @@ input[type="range"] {
     position: absolute;
     margin-left: 0px;
     max-width: 0px;
-    transition: max-width 1s ease;
 }
-
-#searchFolder.active {
+#fmnsb{
+    display: flex;
+    flex-direction: row;
+}
+#fmnsb:focus-within #searchFolder {
     max-width: 188px;
 }
 
-#searchFolder.active #folderSearchInput {
+#fmnsb:focus-within #folderSearchInput {
     width: 166px;
     height: 32px;
     padding: 8px 32px;
 }
+
 
 .srchhdr {
     color: black;
@@ -1445,6 +1457,8 @@ input[type="range"] {
         margin-top: -1px;
         height: 45px;
         margin-left: 0px;
+        min-width: 0px;
+        outline: 0;
         width: 100%;
         background-color: white;
         color: black;
@@ -1527,6 +1541,7 @@ input[type="range"] {
         position: fixed;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
         bottom: 78.8125px;
+        min-width: 0px;
         min-height: 56px;
         height: 56px;
         max-height: 56px;
@@ -1542,6 +1557,7 @@ input[type="range"] {
         color: white;
         width: 92%;
         min-height: 56px;
+        min-width: 0px;
         height: 56px;
         max-height: 56px;
         display: flex;

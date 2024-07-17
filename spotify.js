@@ -91,6 +91,8 @@ function osb2() {
         scrltxt();
     }
 }
+
+let bar = document.getElementById('bar');
 let sidebar2 = document.getElementById('sidebar2');
 sidebar2.addEventListener('click', function () {
     sb2co = 1;
@@ -346,12 +348,19 @@ gpb.addEventListener('click', function () {
 let prevsng;
 prevBtn.addEventListener('click', function () {
     if (ss === 0) {
-        psc = 0;
         if (darr.length > 1) {
-            nsa.push(darr.pop());
-            sc = darr.pop();
+            if (psc === 1) {
+                nsa.push(darr.pop());
+                sc = darr.pop();
+            } else {
+                darr.pop();
+                sc = darr.pop();
+                nsa.push(sc);
+            }
             playmusic(document.querySelector('.' + `${cnts}` + 'fs' + `${sc}`));
+            psc = 0;
         } else {
+            psc = 0;
             if (rptc === 'green') {
                 if (sc === 1) {
                     sc = fc;
@@ -368,11 +377,6 @@ prevBtn.addEventListener('click', function () {
                 }
             }
         }
-        console.log('nsa:', nsa);
-        console.log('darr:', darr);
-        console.log('sc:', sc);
-        console.log('nsc:', nsc);
-        console.log('psc:', psc);
         nsd();
     }
 });
@@ -380,7 +384,7 @@ let nsc, nextsng;
 nextBtn.addEventListener('click', function () {
     if (ss === 0) {
         pmp = 1;
-        if (nsa.length > 0) {
+        if (nsa.length > 1) {
             if (psc === 0)
                 nsa.pop();
             nsc = nsa.pop();
@@ -424,11 +428,6 @@ nextBtn.addEventListener('click', function () {
                 }
             }
         }
-        console.log('nsa:', nsa);
-        console.log('darr:', darr);
-        console.log('sc:', sc);
-        console.log('nsc:', nsc);
-        console.log('psc:', psc);
         nsd();
     }
 });
@@ -479,11 +478,11 @@ function nsd() {
         niq.style.display = 'flex';
     }
     if (nsa.length > 2) {
-        // if (psc === 0) {
-        //     nsc = nsa[nsa.length - 3];
-        // } else {
-        //     nsc = nsa[nsa.length - 2];
-        // }
+        if (psc === 0) {
+            nsc = nsa[nsa.length - 2];
+        } else {
+            nsc = nsa[nsa.length - 1];
+        }
     } else {
         if (rptc === 'green') {
             if (sflc === 'grey') {
@@ -514,7 +513,6 @@ function nsd() {
             }
         }
     }
-    console.log('niq:', nsc);
     let nsxtsng = document.querySelector('.' + `${cnts}` + 'fs' + `${nsc}`);
     if (nsxtsng) {
         let nxtsngd = {
@@ -643,13 +641,6 @@ srchInput.addEventListener('input', function () {
     });
 });
 
-let libSearchButton = document.getElementById('libsearch');
-let searchFolder = document.getElementById('searchFolder');
-
-libSearchButton.addEventListener('click', function () {
-    searchFolder.classList.toggle('active');
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById('mbody').offsetWidth > 600) {
         var stickyDiv = document.querySelector('.stky');
@@ -715,7 +706,6 @@ function csb() {
 let down = document.querySelector('.down');
 let downs = document.querySelector('.downs');
 let floatinginfo = document.querySelector('.floatinginfo');
-let bar = document.getElementById('bar');
 floatinginfo.addEventListener('click', function () {
     if (document.getElementById('mbody').offsetWidth <= 600) {
         if (document.querySelector('#sb').style.display === 'block') {
